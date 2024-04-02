@@ -32,6 +32,12 @@ ALLOWED_HOSTS = ["8000-jayadeepravuri-project-4-trxgjkewl0.us1.codeanyapp.com",
                 '.herokuapp.com']
 
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.codeanyapp.com",
+    "https://*.herokuapp.com"
+]
+
+
 # Application definition
 
 INSTALLED_APPS = [
