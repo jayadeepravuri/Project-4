@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List</title>
+</head>
+<body>
+    <h1>Task List</h1>
+    <ul>
+        {% for task in tasks %}
+            <li>{{ task.task_name }}</li>
+            <ul>
+                <li>Description: {{ task.description }}</li>
+                <li>Request Co-volunteer: {{ task.request_covolunteer }}</li>
+            </ul>
+        {% empty %}
+            <li>No tasks available.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'task_create' %}">Create New Task</a>
+</body>
+</html>

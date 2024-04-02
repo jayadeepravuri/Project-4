@@ -16,10 +16,8 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
-from connect.views import my_connect
+from django.urls import path,include
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path('connect/', my_connect, name='connect'),
-]
+    path("", include("connect.urls"), name="connect-urls"),   
+    path("admin/", admin.site.urls),]
