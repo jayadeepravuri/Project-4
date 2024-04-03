@@ -1,14 +1,16 @@
-from django.views.generic import ListView, CreateView
 from django.urls import reverse_lazy
-from .models import Task
+from django.http  import HttpResponse
+from .models import Task , Volunteering
+from django.views.generic import CreateView , ListView
 
-class TaskListView(ListView):
-    model = Task
-    template_name = 'task_list.html'
-    context_object_name = 'tasks'
+from datetime import date
+import time
 
-class TaskCreateView(CreateView):
+def my_connect(request):
+ return HttpResponse("Hello, there!")
+
+
+class TaskList(ListView):
     model = Task
-    fields = ['task_name', 'description', 'request_covolunteer']
-    template_name = 'task_form.html'
-    success_url = reverse_lazy('task_list')
+    template_name = 'connect/task_list.html'
+    

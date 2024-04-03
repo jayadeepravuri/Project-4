@@ -17,7 +17,12 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path,include
+from connect.views import my_connect
+
 
 urlpatterns = [
-    path("", include("connect.urls"), name="connect-urls"),   
-    path("admin/", admin.site.urls),]
+    path("", include("connect.urls"), name ="home-urls"),
+    path("admin/", admin.site.urls),
+    path('connect/', my_connect, name='connect'),
+]
+

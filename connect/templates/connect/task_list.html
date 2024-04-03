@@ -8,16 +8,16 @@
 <body>
     <h1>Task List</h1>
     <ul>
-        {% for task in tasks %}
-            <li>{{ task.task_name }}</li>
+        {% for Task in object_list %}
+            <li>{{ Task.task_name }}</li>
             <ul>
-                <li>Description: {{ task.description }}</li>
-                <li>Request Co-volunteer: {{ task.request_covolunteer }}</li>
+                <li>Description: {{ Task.description }}</li>
+                <li>Request Co-volunteer: {{ Task.request_covolunteer }}</li>
             </ul>
         {% empty %}
             <li>No tasks available.</li>
         {% endfor %}
     </ul>
-    <a href="{% url 'task_create' %}">Create New Task</a>
+   
 </body>
 </html>
