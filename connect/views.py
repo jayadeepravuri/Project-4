@@ -12,5 +12,5 @@ def my_connect(request):
 
 class TaskList(ListView):
     model = Task
-    template_name = 'connect/task_list.html'
+    template_name = 'connect/index.html'
     

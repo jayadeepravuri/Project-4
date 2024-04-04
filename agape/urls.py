@@ -17,11 +17,12 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path,include
-from connect.views import my_connect
+from connect.views import my_connect,TaskList
 
 
 urlpatterns = [
     path("", include("connect.urls"), name ="home-urls"),
+    path("task/",TaskList.as_view(), ),
     path("admin/", admin.site.urls),
     path('connect/', my_connect, name='connect'),
 ]
