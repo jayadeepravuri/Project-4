@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" );
+@import url("https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic");
+
+:root {
+    --clr-orange: #d64e21;
+    --clr-light: #f5f4f0;
+    --clr-dark: #212529;
+    
+}
+
+body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: var(--clr-light);
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Sancreek', serif;
+}
+
+
+/* Navigation */
+.fill-viewport-height {
+    min-height: 80vh;
+}
+
+
+/* Home Page */
+
+.masthead {
+    height: 80vh;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    top: 0;
+}
+
+.mast-image {
+    height: 80vh;
+    width: 100%;
+    background: url(res.cloudinary.com/deahxwfve/image/upload/v1702027077/static/images/neills-barbershop-hero-lq2.6419b347ab4a.webp') no-repeat center center / cover;
+}
