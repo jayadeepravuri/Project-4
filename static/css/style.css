@@ -23,6 +23,14 @@ h1, h2, h3, h4, h5 {
     min-height: 80vh;
 }
 
+#alert-container {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+}
+
 
 /* Home Page */
 
@@ -37,5 +45,5 @@ h1, h2, h3, h4, h5 {
 .mast-image {
     height: 80vh;
     width: 100%;
-    background: url(res.cloudinary.com/deahxwfve/image/upload/v1702027077/static/images/neills-barbershop-hero-lq2.6419b347ab4a.webp') no-repeat center center / cover;
+    background-image: ;
 }

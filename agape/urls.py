@@ -22,6 +22,7 @@ from connect.views import my_connect,TaskList
 
 urlpatterns = [
     path("", include("connect.urls"), name ="home-urls"),
+    path("accounts/", include("allauth.urls")),
     path("task/",TaskList.as_view(), ),
     path("admin/", admin.site.urls),
     path('connect/', my_connect, name='connect'),
