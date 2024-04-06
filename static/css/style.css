@@ -47,3 +47,52 @@ h1, h2, h3, h4, h5 {
     width: 100%;
     background-image: ;
 }
+
+/* account form */
+.account-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 21px;
+    padding: 10px;
+}
+
+.username-password-signin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#id_remember,
+#id_remember input,
+#id_remember label {
+    display: none;
+}
+
+#signup_form button {
+    margin-top: 10px;
+}
+
+.signup {
+    display: flex;
+    flex-direction: column;
+}
+
+#signup_form input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#login_form input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid;
+    border-radius: 5px;
+    box-sizing: border-box;
+}

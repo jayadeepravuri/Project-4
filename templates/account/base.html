@@ -20,35 +20,36 @@
 
 
   <body>
+   <div class="fill-viewport-height">
 
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-      <div class="container px-4 px-lg-5">
-          <a class="navbar-brand orange-light-text hover-white fs-3" href="#page-top">Agape</a>
-          <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-          <div class="collapse navbar-collapse" id="navbarResponsive">
-              <ul class="navbar-nav ms-auto">
-                  <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#Connect">Connect</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                  {% if user.is_authenticated %}
-                  <li class="nav-item"><a class="nav-link" href="">Volunteer</a></li>
-                  <li class="nav-item"><a class="nav-link" href="">My Account</a></li>
-                  <li class="nav-item"><a class="nav-link" href="">Logout</a></li>
-                  {% else %}
-                  <li class="nav-item"><a class="nav-link" href="{% url 'account_signup' %}">Register</a></li>
-                  <li class="nav-item"><a class="nav-link" href="{% url 'account_login' %}">Login</a></li>
-                  {% endif %}
-              </ul>
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+          <div class="container px-4 px-lg-5">
+              <a class="navbar-brand orange-light-text hover-white fs-3" href="#page-top">Agape</a>
+              <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+              <div class="collapse navbar-collapse" id="navbarResponsive">
+                  <ul class="navbar-nav ms-auto">
+                      <li class="nav-item"><a class="nav-link" href="{% url 'home' %}#about">About</a></li>
+                      <li class="nav-item"><a class="nav-link" href="{% url 'home' %}#Connect">Connect</a></li>
+                      <li class="nav-item"><a class="nav-link" href="{% url 'home' %}#contact">Contact</a></li>
+                      {% if user.is_authenticated %}
+                      <li class="nav-item"><a class="nav-link" href="">Volunteer</a></li>
+                      <li class="nav-item"><a class="nav-link" href="">My Account</a></li>
+                      <li class="nav-item"><a class="nav-link" href="">Logout</a></li>
+                      {% else %}
+                      <li class="nav-item"><a class="nav-link" href="{% url 'account_signup' %}">Register</a></li>
+                      <li class="nav-item"><a class="nav-link" href="{% url 'account_login' %}">Login</a></li>
+                      {% endif %}
+                  </ul>
+              </div>
           </div>
-      </div>
-  </nav>
+      </nav>
 
 
 
     {% block body %}
-
+  <div>
     {% if messages %}
-    <div>
+    <div class = "container">
       <strong>{% trans "Messages:" %}</strong>
       <ul>
         {% for message in messages %}
@@ -61,8 +62,53 @@
 
     {% block content %}
     {% endblock content %}
+  </div>
     {% endblock body %}
     {% block extra_body %}
-    {% endblock extra_body %}
+    
+   </div>
+
+   <footer class="py-5 bg-dark mt-5 ">
+    <div class="container px-4">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <ul class="list-inline text-center">
+                    <li class="list-inline-item">
+                        <a href="https://m.facebook.com/profile.php?id=100093265877309&refid=17&__tn__=C-R" target="_blank" aria-label="Visit our Facebook page (opens in a new tab">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa-brands fa-facebook fa-stack-1x gold-text hover-white"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://www.instagram.com/" target="_blank" aria-label="Visit our Instagram page (opens in a new tab">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa-brands fa-instagram fa-stack-1x gold-text hover-white"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://github.com/DanMorriss/" target="_blank" aria-label="Visit our developers GitHub page (opens in a new tab">
+                            <span class="fa-stack fa-lg">
+                                <i class="fab fa-github fa-stack-1x gold-text hover-white"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+                <p class="m-0 text-center gold-light-text">Copyright &copy ; Agape sweden 2014</p>
+            </div>
+        </div>
+    </div>
+   </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <!-- Custom JS -->
+  <script src="{% static 'js/script.js' %}"></script>
+  <!-- font awesome script -->
+  <script src="https://kit.fontawesome.com/076967cb18.js" crossorigin="anonymous"></script>
+
+  {% endblock extra_body %}
+
   </body>
 </html>

@@ -32,6 +32,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = True
 ALLOWED_HOSTS = ["8000-jayadeepravuri-project-4-trxgjkewl0.us1.codeanyapp.com",
                  "8000-jayadeepravuri-agape-7nrdjkhoge8.ws-eu110.gitpod.io",
+                 'localhost', '127.0.0.1',
                  '.herokuapp.com']
 
 
@@ -51,12 +52,17 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'crispy_forms',
+    'crispy_bootstrap5',
     "connect",
 ]
 
 SITE_ID = 1
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/volunteer/'
 LOGOUT_REDIRECT_URL = '/'
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -107,7 +113,8 @@ DATABASES = {
 
 CSRF_TRUSTED_ORIGINS = [
     "https://*.codeanyapp.com",
-    "https://*.herokuapp.com"
+    "https://*.herokuapp.com",
+    "https://*.gitpod.io",
 ]
 
 
