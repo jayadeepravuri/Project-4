@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
 
 
 # Create your models here.
@@ -30,6 +31,13 @@ class Volunteering(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.task.task_name} ({self.date_of_volunteering})"
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    profile_picture = CloudinaryField('image')
+
+    def __str__(self):
+        return f'{self.user.username} UserProfile'
 
 
 

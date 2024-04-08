@@ -3,15 +3,13 @@ from django.db.models import Q
 from django.http  import HttpResponse
 from .models import Volunteering, Task
 from .forms import VolunteeringForm, VolunteeringSearchForm
-from django.views.generic import (CreateView , ListView, DetailView,UpdateView,
+from django.views.generic import (CreateView ,ListView,DetailView,UpdateView,
                                   DeleteView)
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from datetime import date
 import time
-
-class TaskList(ListView):
-    model = Task
-    template_name = 'connect/index.html'
 
 class VolunteeringListView(LoginRequiredMixin,ListView):
     model = Volunteering
@@ -21,29 +19,29 @@ class VolunteeringListView(LoginRequiredMixin,ListView):
 
     def get_queryset(self):
         current_date = date.today()
-        form = BookingSearchForm(self.request.GET)
+        form = VolunteeringSearchForm(self.request.GET)
 
         if self.request.user.is_superuser:
             if form.is_valid():
                 search_query = form.cleaned_data['search_query']
                 selected_date = form.cleaned_data['selected_date']
-                queryset = Booking.objects.filter(
+                queryset = Volunteering.objects.filter(
                     Q(date_of_volunteering__gt=current_date) |
                     Q(date_of_volunteering=current_date),
-                    Q(username__username__icontains=search_query) |
-                    Q(task__task__icontains=search_query),
+                    Q(user__username__icontains=search_query) |
+                    Q(task__task_name__icontains=search_query),
                     Q(date_of_booking=selected_date) if selected_date else Q()
                 ).order_by('date_of_volunteering')
         else:
             queryset = Volunteering.objects.filter(
-                username = self.request.user).filter(
+                user = self.request.user).filter(
                     Q(date_of_volunteering__gt=current_date)
                 ).order_by('date_of_volunteering')
         return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['form'] = BookingSearchForm()
+        context['form'] = VolunteeringSearchForm()
         return context
 
 
@@ -67,11 +65,11 @@ class CreateVolunteerView(LoginRequiredMixin, CreateView):
     """
     model = Volunteering
     template_name = 'connect/volunteer_form.html'
-    success_url = reverse_lazy('volunteer_home')
+    success_url = reverse_lazy('volunteer-home')
     form_class = VolunteeringForm
 
     def form_valid(self, form):
-        form.instance.username = self.request.user
+        form.instance.user = self.request.user
         messages.success(self.request,"Your booking has been made successfully!",
             extra_tags="alert alert-success alert-dismissible",)
         return super().form_valid(form)
@@ -123,7 +121,7 @@ class VolunteeringDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView
 
     def test_func(self):
         volunteering = self.get_object()
-        return (self.request.user == volunteering.username or
+        return (self.request.user == volunteering.user or
                 self.request.user.is_superuser)
 
 class VolunteeringDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
@@ -164,3 +162,29 @@ class ConfirmVolunteeringView(LoginRequiredMixin, UserPassesTestMixin, UpdateVie
                          extra_tags="alert alert-success alert-dismissible",
                          )
         return super().form_valid(form)
+
+
+
+@login_required
+def profile_view(request):
+    """
+    Renders the profile page
+    """
+    if request.method == 'POST':
+        user_form = UserUpdateForm(request.POST, instance=request.user)
+        profile_form = ProfileUpdateForm(
+            request.POST, request.FILES, instance=request.user.profile)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, 'Your account has been updated!')
+            return redirect('profile')
+    else:
+        user_form = UserUpdateForm(instance=request.user)
+        profile_form = ProfileUpdateForm(instance=request.user.profile)
+
+    context = {
+        'user_form': user_form,
+        'profile_form': profile_form,
+    }
+    return render(request, 'recipes/profile.html', context)

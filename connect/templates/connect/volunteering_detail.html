@@ -1,0 +1,52 @@
+{% extends "base.html" %} {% block content %} {% load account %}
+
+<div class="container mt-5">
+
+  <div class="d-flex justify-content-center push-down">
+    <div class="card gold-shadow p-3 m-3 text-center w-75 pb-5">
+      <div class="d-flex justify-content-end ">
+        <a href="{% url 'volunteer-home' %}" class="btn btn-outline-dark gold-shadow custom-close-btn" aria-label="close"><i class="fa-solid fa-scissors"></i></a>
+      </div>
+      <div>
+        <h2 class="text-center">{{ volunteering.date_of_volunteering|date:"l j F Y" }}</h2><br>
+      </div>
+
+      {% if user.is_superuser %}
+      <h3><i class="fa-regular fa-user"></i> User: {{ volunteering.user }}</h3>
+      {% endif %}
+      <h3>
+        {{ volunteering.task }}</h3>
+        {% if volunteering.comments %}
+
+        <h3><i class="fa-regular fa-comment"></i> Message:</h3>
+        <p>{{ volunteering.comments }}</p>
+        {% endif %}
+      
+      {% if volunteering.confirmed %}
+        <p class="text-success"><i class="fa-regular fa-circle-check"></i>  Confirmed</p>
+        {% else %}
+        <p class="text-danger"><i class="fa-regular fa-circle-xmark"></i> Not Yet Confirmed</p>
+        {% if user.is_superuser %}
+        <form method="post" action="{% url 'confirm-volunteer' pk=object.pk %}">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-success mb-3 gold-shadow">Confirm Booking</button>
+      </form>        {% endif %}
+          {% endif %}
+      <div class="d-grid gap-2 col-6 mx-auto">
+         <a
+          href="{% url 'volunteer-update' volunteering.id %}"
+          class="btn custom-button-light-gold pt-3"
+          ><h4>Edit Appointment</h5></a
+        > 
+        <a
+          href="{%  url 'volunteer-delete' volunteering.id  %}"
+          class="btn custom-button-dark-gold pt-3 light-text"
+          ><h4>Cancel Appointment</h5></a
+        >
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}
