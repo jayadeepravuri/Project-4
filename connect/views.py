@@ -1,15 +1,18 @@
 from django.urls import reverse_lazy
 from django.db.models import Q
 from django.http  import HttpResponse
-from .models import Volunteering, Task
-from .forms import VolunteeringForm, VolunteeringSearchForm
+from .models import Volunteering, Task, Profile
+from .forms import VolunteeringForm, VolunteeringSearchForm, UserUpdateForm, ProfileUpdateForm
 from django.views.generic import (CreateView ,ListView,DetailView,UpdateView,
                                   DeleteView)
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from datetime import date
-import time
+from django.core.exceptions import ObjectDoesNotExist
+from django.shortcuts import (
+    render, get_object_or_404, reverse, redirect, resolve_url)
+
 
 class VolunteeringListView(LoginRequiredMixin,ListView):
     model = Volunteering
@@ -97,7 +100,7 @@ class UpdateVolunteeringView(LoginRequiredMixin, UserPassesTestMixin, UpdateView
     """
     model = Volunteering
     template_name = 'connect/volunteer_form.html'
-    success_url = reverse_lazy('volunteer_home')
+    success_url = reverse_lazy('volunteer-home')
     form_class = VolunteeringForm
 
     def form_valid(self, form):
@@ -112,7 +115,7 @@ class UpdateVolunteeringView(LoginRequiredMixin, UserPassesTestMixin, UpdateView
 
     def test_func(self):
         volunteering = self.get_object()
-        return (self.request.user == volunteering.username or
+        return (self.request.user == volunteering.user or
                 self.request.user.is_superuser)
 
 class VolunteeringDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
@@ -138,9 +141,9 @@ class VolunteeringDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView
         )
         return super().delete(request, *args, **kwargs)
 
-        def test_func(self):
-         volunteering = self.get_object()
-         return (self.request.user == volunteering.username or
+    def test_func(self):
+        volunteering = self.get_object()
+        return (self.request.user == volunteering.user or
                 self.request.user.is_superuser)
 
 class ConfirmVolunteeringView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
@@ -165,15 +168,12 @@ class ConfirmVolunteeringView(LoginRequiredMixin, UserPassesTestMixin, UpdateVie
 
 
 
-@login_required
+"""@login_required
 def profile_view(request):
-    """
-    Renders the profile page
-    """
+    
     if request.method == 'POST':
         user_form = UserUpdateForm(request.POST, instance=request.user)
-        profile_form = ProfileUpdateForm(
-            request.POST, request.FILES, instance=request.user.profile)
+        profile_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
@@ -187,4 +187,43 @@ def profile_view(request):
         'user_form': user_form,
         'profile_form': profile_form,
     }
-    return render(request, 'recipes/profile.html', context)
+    return render(request, 'templates/connect/profile.html', context)"""
+
+
+
+
+@login_required
+def profile_view(request):
+    """
+    Renders the profile page
+    """
+    if request.method == 'POST':
+        user_form = UserUpdateForm(request.POST, instance=request.user)
+        try:
+            profile_instance = request.user.profile
+            profile_form = ProfileUpdateForm(request.POST, request.FILES, instance=profile_instance)
+        except ObjectDoesNotExist:
+            profile_form = ProfileUpdateForm(request.POST, request.FILES)
+
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            if 'profile_instance' in locals():
+                profile_form.save()
+            else:
+                profile_form.instance.user = request.user
+                profile_form.save()
+            messages.success(request, 'Your account has been updated!')
+            return redirect('profile')
+    else:
+        user_form = UserUpdateForm(instance=request.user)
+        try:
+            profile_instance = request.user.profile
+            profile_form = ProfileUpdateForm(instance=profile_instance)
+        except ObjectDoesNotExist:
+            profile_form = ProfileUpdateForm()
+
+    context = {
+        'user_form': user_form,
+        'profile_form': profile_form,
+    }
+    return render(request, 'connect/profile.html', context)

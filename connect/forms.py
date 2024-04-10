@@ -1,4 +1,4 @@
-from .models import Volunteering ,Task, UserProfile
+from .models import Volunteering ,Task, Profile
 from django import forms
 from django.forms.widgets import DateInput
 from django.contrib.auth.models import User
@@ -94,5 +94,5 @@ class ProfileUpdateForm(forms.ModelForm):
     Form for profile image update
     """
     class Meta:
-        model = UserProfile
+        model = Profile
         fields = ['profile_picture', ]
