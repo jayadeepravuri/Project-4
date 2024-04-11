@@ -1,22 +1,24 @@
 {% extends "base.html" %} {% load crispy_forms_tags %} {% load i18n %}
+{% load static %}
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 {% block content %}
 
-<div class="container mt-5 justify-content-center align-items-center">
-    <div class="row justify-content-center">
+<div class="bg-color">
+<div id="signupform" class="container mt-5 justify-content-center align-items-center">
+    <div class="row justify-content-center ">
         <div class="col-lg-6 card push-down  mb-5">
             
-            <div class="row text-center bg-color-2">
+            <div class="row text-center bg-color-1">
                 <div class="col-md-8 mt-3 pt-3 offset-md-2">
                     <h1>{% trans "Sign Up" %}</h1>
 
                     <p>{% blocktrans %} Welcome to Agape, signup to volunteer!<br>
                         Already have an account?
-                        <a class="link" href="{{ login_url }}">Login</a> instead.{% endblocktrans %}</p>
+                        <a class=" btn btn-accent" href="{{ login_url }}">Login</a> instead.{% endblocktrans %}</p>
                 </div>
             </div>
 
-            <div class="row bg-color-1">
+            <div class="row bg-color-2 ">
                 <div class="col-md-8 mt-3 offset-md-2">
                     <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
                         {% csrf_token %}
@@ -26,13 +28,12 @@
                         {% endif %}
                         <div class="row text-center">
                             <div class="col">
-                                <button class="btn  m-3 fs-4" type="submit">{% trans "Sign Up" %} &raquo;</button>
+                                <button class="btn btn-accent m-3 fs-4" type="submit">{% trans "Sign Up" %} &raquo;</button>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
