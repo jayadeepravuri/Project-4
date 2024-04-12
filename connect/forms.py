@@ -37,28 +37,38 @@ class VolunteeringForm(forms.ModelForm):
     """
     class Meta:
         model = Volunteering
-        fields = ["date_of_volunteering", "task", 'comments']
+        fields = ["date_of_volunteering", "task", 'comments', 'request_covolunteer']
         widgets = {'date_of_volunteering': DateInput(attrs={'type': 'date'}), }
 
         labels = {
             'date_of_volunteering': 'Date',
             'task': 'Task',
-            'comments': 'Message'
+            'comments': 'Message',
+            'request_covolunteer': 'Request a co-volunteer'
             }
 
     def clean(self):
         cleaned_data = super().clean()
         date_of_volunteering = cleaned_data.get('date_of_volunteering')
+        task = cleaned_data.get('task')
+        request_covolunteer =cleaned_data.get('request_covolunteer')
 
         if date_of_volunteering and date_of_volunteering < date.today():
             raise ValidationError('Please select a date in the future.')
+            
 
         existing_volunteering = Volunteering.objects.filter(
-            date_of_volunteering=date_of_volunteering
+            date_of_volunteering=date_of_volunteering,
+            task=task,
+            request_covolunteer=request_covolunteer,
         ).exclude(id=self.instance.id)
+        
 
         if existing_volunteering:
             raise ValidationError('The task you have choosen is already taken by others.')
+
+        if task and not task.task_name: 
+            raise ValidationError('The selected task is not available.')
 
 
 class VolunteeringSearchForm(forms.Form):
@@ -89,10 +99,3 @@ class UserUpdateForm(forms.ModelForm):
         fields = ['username', 'email']
 
 
-class ProfileUpdateForm(forms.ModelForm):
-    """
-    Form for profile image update
-    """
-    class Meta:
-        model = Profile
-        fields = ['profile_picture', ]

@@ -13,7 +13,7 @@ User = get_user_model()
 class Task(models.Model):
     task_name = models.CharField(max_length=100)
     description = models.TextField()
-    request_covolunteer = models.BooleanField(default=False)
+    
 
 
 
@@ -32,13 +32,13 @@ class Volunteering(models.Model):
     date_of_volunteering = models.DateField(validators=[validate_wednesday_date])
     confirmed = models.BooleanField(default=False)
     comments = models.TextField(max_length=500, blank=True)
+    request_covolunteer = models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.user.username} - {self.task.task_name} ({self.date_of_volunteering})"
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    profile_picture = CloudinaryField('image')
 
     def __str__(self):
         return f'{self.user.username} Profile'

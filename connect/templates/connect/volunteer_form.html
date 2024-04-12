@@ -1,30 +1,47 @@
 {% extends "base.html" %} {% load crispy_forms_tags %} {% load account %} 
 {% block content %}
-<div class="container mt-5 justify-content-center align-items-center">
-  <div class="row justify-content-center">
-    <div class="col-md-6 card push-down gold-shadow">
 
-      <div class="m-3">
-        <form
-          method="POST"
-          class="form mb-2 p-2 form-style"
-          enctype="multipart/form-data"
-        >
-          <h1 class="text-center pt-5">Volunteer by choosing a Task</h1>
-          {% csrf_token %} {{ form | crispy }} {{ form.media }}
-          <div class="container d-flex justify-content-center">
-            <button
-              type="submit"
-              class="btn form-style custom-button-dark-gold mt-3 pt-3"
-            >
-              <h3>Book</h3>
-            </button>
+<div class="py-5 bg-color-1">
+  <div class="container">
+    <div class="row">
+      <!-- Left Column -->
+      <div class="col-lg-6 d-flex align-items-center">
+        <div class="container mt-5">
+          <div class="row justify-content-center">
+            <h2 class="mb-4">About Us</h2>
+            <p class="text-muted">Provide a brief overview of your website or organization. Highlight your mission, vision, or key values.</p>
+            <p class="text-muted">You can also mention the benefits of using your services or products, or any unique selling points that set you apart.</p>
           </div>
-        </form>
+        </div>
       </div>
       
-    </div>
-  </div>
-</div>
+      <!-- Right Column -->
+      <div id = "volunteerform"class="col-lg-6">
+        <div class="container mt-5">
+          <div class="row justify-content-center">
+          <div class="col-md-6 card bg-color-1">
+              <div class="m-3" >
+                <form method="POST" class="form mb-2 p-2 form-style" enctype="multipart/form-data">
+                  <h2 class="text-center pt-2 primary-color">Volunteer Form</h2>
+                  {% csrf_token %} {{ form | crispy }} {{ form.media }}
+                  <div class="container d-flex justify-content-center">
+                    <button type="submit" class="btn form-style btn-accent mt-3 pt-3">
+                      <h3>Volunteer</h3>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- End of row -->
+  </div> <!-- End of container -->
+</div> <!-- End of py-5 bg-color-1 -->
+
+ 
+
+
+
 
 {% endblock content %}

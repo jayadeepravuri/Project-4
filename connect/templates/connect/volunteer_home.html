@@ -3,75 +3,72 @@
 {% load account %}
 {% load crispy_forms_tags %}
 
+<div id= "volunteerhome" class="py-5 bg-color-1">
 <div class="container">
 
-        <div class="container heading push-down">
+        <div class="container heading bg-color-2 ">
             <hr class="mt-5">
-            <h1>Welcome, {% user_display user %}!</h1>
+            <h1 class="text-center text-uppercase ">Welcome, {% user_display user %}!</h1>
             <hr>
         </div>
 
 
-    <div class="row">
-        
+    <div class="row">  
         <!-- Main Col -->
         <div class="col-md-8">
             <div class="container mt-5 text-center main-content">
             
-                {% if object_list %}
-                    {% for volunteering in object_list %}
-                   
-                    <div>
-                        <div class="d-flex justify-content-center ">
-                            <a href="{% url 'volunteer-detail' volunteering.id %}" class="link-underline link-underline-opacity-0">
-                                <div class="card gold-shadow m-3 text-center custom-button-light-gold">
-                                    <div class="card-header dark-background">
-                                        <p class="p-0 m-0 font-sancreek fs-4 dark-text">{{volunteering.date_of_volunteering|date:"l j F Y" }}</p>
-                                    </div> 
-                                    <h3 class="mt-3 fs-3">{{ volunteering.task.task_name }}</h3>
-                                    {% if user.is_superuser %}
-                                    <p>{{ volunteering.user.username }}
-                                    {% endif %}
-                                        {% if volunteering.comments %}
-                                        <i class="fa-regular fa-comment"></i>
-                                        {% endif %}
-                                    </p>
-                                    {% if volunteering.confirmed %}
-                                    <p class="text-success"><i class="fa-regular fa-circle-check"></i> confirmed</p>
-                                    {% else %}
-                                    <p><i class="text-danger fa-regular fa-circle-xmark"></i> Waiting Confirmation</p>
-                                    {% endif %}
-                                </div>
-                            </a> 
-                        </div>       
+<!-- Inside your template -->
+{% if object_list %}
+    <div class="row">
+        {% for volunteering in object_list %}
+            <div class=" d-flex justify-content-center col-md-4">
+                <a href="{% url 'volunteer-detail' volunteering.id %}" class="bg-color-2 link-underline link-underline-opacity-0">
+                    <div class="card m-3 text-center">
+                        <div class="card-header">
+                            <p class="p-0 m-0 bg-color-1 fs-4">{{volunteering.date_of_volunteering|date:"l j F Y" }}</p>
+                        </div> 
+                        <h3 class="mt-3 fs-3">{{ volunteering.task.task_name }}</h3>
+                        {% if user.is_superuser %}
+                            <p>{{ volunteering.user.username }}</p>
+                        {% endif %}
+                        {% if volunteering.comments %}
+                            <i class="fa-regular fa-comment"></i>
+                        {% endif %}
+                        {% if volunteering.request_covolunteer %}
+                        <p>Requested volunteer</p>
+                        {% endif %}
+                        {% if volunteering.confirmed %}
+                            <p class="text-success"><i class="fa-regular fa-circle-check"></i> confirmed</p>
+                        {% else %}
+                            <p><i class="text-danger fa-regular fa-circle-xmark"></i> Waiting Confirmation</p>
+                        {% endif %}
                     </div>
-                   
-                    {% endfor %}
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class='d-flex justify-content-center'>
+        <div class="card p-3 m-3 text-center w-75">
+            <p class="pt-3">No upcoming appointments.</p> 
+            <a class="btn btn-accent" href="{% url 'volunteer-create' %}" >
+                <button class="btn btn-accent" type="button"><h2>Volunteer</h2></button>
+            </a>
+        </div>
+    </div>
+{% endif %}
 
-                {% else %}
-                <div class='d-flex justify-content-center '>
-                    <div class="card shadow p-3 m-3 text-center w-75">
-                        <p class="pt-3">No upcoming apppointments.</p> 
-                        
-                        <a href="{% url 'volunteer-create' %}" class="link-underline link-underline-opacity-0">
-                            <div class="d-flex justify-content-center p-3">
-                                <button class="btn custom-button-dark-gold pt-3 " type="button"><h2>volunteer</h2></button>
-                            </div>
-                        </a>
-
-                    </div>
-                </div>
-                {% endif %}
 
                 {% if is_paginated %}
-                <nav aria-label="Page navigation">
+                <nav id="pagebutton" aria-label="Page navigation">
                     <ul class="pagination justify-content-center">
                         {% if page_obj.has_previous %}
-                        <li><a href="?page={{ page_obj.previous_page_number }}"
+                        <li><a class= "btn btn-accent" href="?page={{ page_obj.previous_page_number }}"
                             class="page-link">&laquo; PREV </a></li>
                         {% endif %}
                         {% if page_obj.has_next %}
-                        <li><a href="?page={{ page_obj.next_page_number }}" 
+                        <li><a  class= "btn btn-accent" href="?page={{ page_obj.next_page_number }}" 
                             class="page-link"> NEXT &raquo;</a></li>
                         {% endif %}
                     </ul>
@@ -81,39 +78,35 @@
         </div>
         
         <!-- Right Col -->
-        <div class="col-md-4 mt-1">
+        <div class="col-md-4 bg-color-2 mt-1">
 
             
-            <div class="d-flex justify-content-center p-3 mt-5">
-                <a href="{% url "volunteer-create" %}" class="btn custom-button-dark-gold pt-3"><h4>volunteer</h4></a>
-            </div>
-            
             {% if user.is_superuser %}
-            <div class="container mt-1 text-center card gold-shadow p-3">
-                <h3 class="font-sancreek">Search volunteers</h3>
+            <div class="container mt-1  p-3">
+                <h3 class="bg-color-1 text-center">Search volunteers</h3>
                 <form method="get" action="{% url 'volunteer-home' %}">
                     {{ form | crispy }}
-                    <button type="submit" class="btn btn-primary font-sancreek mt-2">Search</button>
-                    <a href="{% url "volunteer-home" %}" class="btn btn-outline-secondary font-sancreek mt-2">Reset</a>
-                </form>
-                
+                    <button type="submit" class="btn btn-accent mt-2">Search</button>
+                    <a href="{% url "volunteer-home" %}" class="btn btn-accent mt-2">Reset</a>
+                </form> 
             </div>
             {% endif %}
 
-            <div class="card gold-shadow p-3 mt-3">
-                <h3 class="text-center">Your Account</h3>
+            <div class="card p-3 mt-3">
+                <h3 class="text-center bg-color-1">Your Account</h3>
                 <p><i class="fa-regular fa-user"></i> Username: {{ user.username }}</p>
                 {% if user.email %}
                 <p><i class="fa-regular fa-envelope"></i> Email: {{ user.email }}</p>
                 {% endif %}
-                <div class="d-flex justify-content-center p-3 mt-3">
-                    <a href="{% url "profile" %}" class="btn custom-button-dark-gold pt-3"><h4>Your account details</h4></a>
+                <div class="d-flex justify-content-center p-3 ">
+                    <a href="{% url "profile" %}" class="btn btn-accent pt-3"><h4> Account details</h4></a>
                 </div>
+            </div>
+            <div class="d-flex justify-content-center p-3 ">
+                <a class="btn btn-accent" href="{% url "volunteer-create" %}" class="btn pt-3"><h4>Volunteer</h4></a>
             </div>
         </div>
     </div>
-    <!-- Close main row-->
-
-<!--close main container-->
+</div>
 </div>
 {% endblock %}

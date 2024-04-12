@@ -3,14 +3,14 @@
 
 body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color:#DFAD49;
+    
 }
 
 h1, h2, h3, h4, h5 {
     font-family: 'Sancreek', serif;
 }
 
-/* Primary Color */
+* Primary Color */
 .primary-color {
     color: #E59A59;
 }
@@ -47,9 +47,10 @@ h1, h2, h3, h4, h5 {
     color:#DFAD49;
 }
 
+
 /* Navigation */
 .fill-viewport-height {
-    min-height: 80vh;
+    min-height: 85vh;
 }
 
 #alert-container {
@@ -132,6 +133,62 @@ h1, h2, h3, h4, h5 {
     border-color: #CAA642; /* Lighter shade of Accent Color on hover */
 }
 
+#loginform .btn-accent {
+    background-color: #DFAD49; /* Accent Color */
+    border-color: #DFAD49; /* Accent Color */
 
+}
+#loginform .btn-accent:hover {
+    background-color: #CAA642; /* Lighter shade of Accent Color on hover */
+    border-color: #CAA642; /* Lighter shade of Accent Color on hover */
+}
 
+#volunteerform .btn-accent {
+    background-color: #DFAD49; /* Accent Color */
+    border-color: #DFAD49; /* Accent Color */
 
+}
+#volunteerform .btn-accent:hover {
+    background-color: #CAA642; /* Lighter shade of Accent Color on hover */
+    border-color: #CAA642; /* Lighter shade of Accent Color on hover */
+}
+
+#volunteerhome .btn-accent {
+    background-color: #DFAD49; /* Accent Color */
+    border-color: #DFAD49; /* Accent Color */
+
+}
+#volunteerhome .btn-accent:hover {
+    background-color: #CAA642; /* Lighter shade of Accent Color on hover */
+    border-color: #CAA642; /* Lighter shade of Accent Color on hover */
+}
+
+#logoutpage .btn-accent {
+    background-color: #DFAD49; /* Accent Color */
+    border-color: #DFAD49; /* Accent Color */
+
+}
+#logoutpage .btn-accent:hover {
+    background-color: #CAA642; /* Lighter shade of Accent Color on hover */
+    border-color: #CAA642; /* Lighter shade of Accent Color on hover */
+}
+
+#volunteer-detail .btn-accent {
+    background-color: #DFAD49; /* Accent Color */
+    border-color: #DFAD49; /* Accent Color */
+
+}
+#volunteer-detail .btn-accent:hover {
+    background-color: #CAA642; /* Lighter shade of Accent Color on hover */
+    border-color: #CAA642; /* Lighter shade of Accent Color on hover */
+}
+
+#profile .btn-accent {
+    background-color: #DFAD49; /* Accent Color */
+    border-color: #DFAD49; /* Accent Color */
+
+}
+#profile .btn-accent:hover {
+    background-color: #CAA642; /* Lighter shade of Accent Color on hover */
+    border-color: #CAA642; /* Lighter shade of Accent Color on hover */
+}

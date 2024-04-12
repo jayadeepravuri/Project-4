@@ -1,46 +1,34 @@
-{% extends 'base.html' %} {% load static %} {% load crispy_forms_tags %} 
+{% extends 'base.html' %} 
+{% load static %} 
+{% load crispy_forms_tags %} 
+
 {% block content %}
 
 <!-- PROFILE SECTION -->
-<section id="profile">
-  <h2 class="title">Account Informations</h2>
-  <div class="container">
-    <div>
-      <div class="col-md-12">
-        {% if user.profile.image %}
-        <img
-          class="profile-user-img"
-          src="{{ user.profile.image.url }}"
-          alt="User Image"
-        />
-        {% else %}
-        <img
-          class=" profile-user-img"
-          src="{% static 'images/user_profile_placeholder.jpg' %}"
-          alt="User Image"
-        />
-        {% endif %}
-      </div>
-    </div>
+<section id="profile" class="d-flex justify-content-center align-items-center vh-50 fill-viewport-height ">
+  <div>
+    <h2 class="title text-center">Account Informations</h2>
+  
+    <form
+      class="update-profile form-control mt-5 "
+      id="signup_form"
+      method="post"
+      action=""
+      enctype="multipart/form-data"
+    >
+      {% csrf_token %} 
+      {{ user_form | crispy }} 
+      {{ profile_form | crispy }} 
+      {% if redirect_field_value %}
+      <input
+        type="hidden"
+        name="{{ redirect_field_name }}"
+        value="{{ redirect_field_value }}"
+      />
+      {% endif %}
+      <button class="btn btn-accent mt-3 mb-3" type="submit">Update</button>
+    </form>
   </div>
-  <form
-    class="update-profile form-control mt-5 "
-    id="signup_form"
-    method="post"
-    action=""
-    enctype="multipart/form-data"
-  >
-    {% csrf_token %} {{ user_form | crispy }} {{ profile_form | crispy }} 
-    {% if redirect_field_value %}
-    <input
-      type="hidden"
-      name="{{ redirect_field_name }}"
-      value="{{ redirect_field_value }}"
-    />
-    {% endif %}
-    <button class="btn-sm btn-secondary mt-3 mb-3" type="submit">Update</button>
-  </form>
-  <!-- Modal For Profile Deletion-->
 </section>
 <!-- END OF PROFILE SECTION -->
 

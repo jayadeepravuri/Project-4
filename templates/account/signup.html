@@ -1,23 +1,20 @@
 {% extends "base.html" %} {% load crispy_forms_tags %} {% load i18n %}
-{% load static %}
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 {% block content %}
 
 <div class="bg-color">
 <div id="signupform" class="container mt-5 justify-content-center align-items-center">
     <div class="row justify-content-center ">
-        <div class="col-lg-6 card push-down  mb-5">
-            
+        <div class="col-lg-6 card push-down mb-5">
             <div class="row text-center bg-color-1">
                 <div class="col-md-8 mt-3 pt-3 offset-md-2">
                     <h1>{% trans "Sign Up" %}</h1>
 
                     <p>{% blocktrans %} Welcome to Agape, signup to volunteer!<br>
                         Already have an account?
-                        <a class=" btn btn-accent" href="{{ login_url }}">Login</a> instead.{% endblocktrans %}</p>
+                        <a class=" btn btn-accent" href="{{ login_url }}">Login</a>{% endblocktrans %}</p>
                 </div>
             </div>
-
             <div class="row bg-color-2 ">
                 <div class="col-md-8 mt-3 offset-md-2">
                     <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
@@ -36,6 +33,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 
 {% endblock %}

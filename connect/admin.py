@@ -7,15 +7,16 @@ class VolunteeringAdmin(admin.ModelAdmin):
         list_display = ('user',
                          'date_of_volunteering',
                          'task',
-                         'confirmed')
+                         'confirmed',
+                         'request_covolunteer')
         list_filter = ('date_of_volunteering', 'user')
         search_feilds = ['username', 'task']
-        actions = ['confirm_booking']
+        actions = ['confirm_volunteer']
 
         def confirm_booking(self, request, queryset):
-            queryset.update(confirmed=true)
+            queryset.update(confirmed=True)
 
 
 @admin.register(Task)
 class VolunteeringTask(admin.ModelAdmin):
-    list_display = ('task_name','description', 'request_covolunteer')
+    list_display = ('task_name','description',)

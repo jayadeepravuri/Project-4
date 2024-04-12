@@ -2,14 +2,13 @@ from django.urls import reverse_lazy
 from django.db.models import Q
 from django.http  import HttpResponse
 from .models import Volunteering, Task, Profile
-from .forms import VolunteeringForm, VolunteeringSearchForm, UserUpdateForm, ProfileUpdateForm
+from .forms import VolunteeringForm, VolunteeringSearchForm, UserUpdateForm
 from django.views.generic import (CreateView ,ListView,DetailView,UpdateView,
                                   DeleteView)
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from datetime import date
-from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import (
     render, get_object_or_404, reverse, redirect, resolve_url)
 
@@ -17,7 +16,7 @@ from django.shortcuts import (
 class VolunteeringListView(LoginRequiredMixin,ListView):
     model = Volunteering
     template_name = 'connect/volunteer_home.html'
-    paginate_by = 25
+    paginate_by =6
     form_class = VolunteeringSearchForm
 
     def get_queryset(self):
@@ -33,7 +32,7 @@ class VolunteeringListView(LoginRequiredMixin,ListView):
                     Q(date_of_volunteering=current_date),
                     Q(user__username__icontains=search_query) |
                     Q(task__task_name__icontains=search_query),
-                    Q(date_of_booking=selected_date) if selected_date else Q()
+                    Q(date_of_volunteering=selected_date) if selected_date else Q()
                 ).order_by('date_of_volunteering')
         else:
             queryset = Volunteering.objects.filter(
@@ -47,9 +46,6 @@ class VolunteeringListView(LoginRequiredMixin,ListView):
         context['form'] = VolunteeringSearchForm()
         return context
 
-
-
-            
 class CreateVolunteerView(LoginRequiredMixin, CreateView):
     """
     View for creating a new booking.
@@ -73,7 +69,7 @@ class CreateVolunteerView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.user = self.request.user
-        messages.success(self.request,"Your booking has been made successfully!",
+        messages.success(self.request,"Your task has been successfully created!",
             extra_tags="alert alert-success alert-dismissible",)
         return super().form_valid(form)
 
@@ -107,7 +103,7 @@ class UpdateVolunteeringView(LoginRequiredMixin, UserPassesTestMixin, UpdateView
         form.instance.confirmed = False
         messages.success(
             self.request,
-            "Your booking has been successfully updated!",
+            "Your Task has been successfully updated!",
             extra_tags="alert alert-success alert-dismissible",
         )
         return super().form_valid(form)
@@ -136,7 +132,7 @@ class VolunteeringDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView
         booking = self.get_object()
         messages.success(
             self.request,
-            "Your booking has been successfully deleted!",
+            "Your Task has been successfully deleted!",
             extra_tags="alert alert-danger alert-dismissible",
         )
         return super().delete(request, *args, **kwargs)
@@ -149,7 +145,6 @@ class VolunteeringDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView
 class ConfirmVolunteeringView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     model = Volunteering
-    template_name = 'connect/volunteer_confirm.html'
     fields = ['confirmed']
     success_url = reverse_lazy('volunteer-home')
 
@@ -167,63 +162,21 @@ class ConfirmVolunteeringView(LoginRequiredMixin, UserPassesTestMixin, UpdateVie
         return super().form_valid(form)
 
 
-
-"""@login_required
-def profile_view(request):
-    
-    if request.method == 'POST':
-        user_form = UserUpdateForm(request.POST, instance=request.user)
-        profile_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
-        if user_form.is_valid() and profile_form.is_valid():
-            user_form.save()
-            profile_form.save()
-            messages.success(request, 'Your account has been updated!')
-            return redirect('profile')
-    else:
-        user_form = UserUpdateForm(instance=request.user)
-        profile_form = ProfileUpdateForm(instance=request.user.profile)
-
-    context = {
-        'user_form': user_form,
-        'profile_form': profile_form,
-    }
-    return render(request, 'templates/connect/profile.html', context)"""
-
-
-
-
-@login_required
 def profile_view(request):
     """
     Renders the profile page
     """
     if request.method == 'POST':
         user_form = UserUpdateForm(request.POST, instance=request.user)
-        try:
-            profile_instance = request.user.profile
-            profile_form = ProfileUpdateForm(request.POST, request.FILES, instance=profile_instance)
-        except ObjectDoesNotExist:
-            profile_form = ProfileUpdateForm(request.POST, request.FILES)
-
-        if user_form.is_valid() and profile_form.is_valid():
+        if user_form.is_valid():
             user_form.save()
-            if 'profile_instance' in locals():
-                profile_form.save()
-            else:
-                profile_form.instance.user = request.user
-                profile_form.save()
             messages.success(request, 'Your account has been updated!')
             return redirect('profile')
     else:
         user_form = UserUpdateForm(instance=request.user)
-        try:
-            profile_instance = request.user.profile
-            profile_form = ProfileUpdateForm(instance=profile_instance)
-        except ObjectDoesNotExist:
-            profile_form = ProfileUpdateForm()
 
     context = {
         'user_form': user_form,
-        'profile_form': profile_form,
     }
     return render(request, 'connect/profile.html', context)
+    
