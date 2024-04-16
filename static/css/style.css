@@ -100,25 +100,25 @@ h1, h2, h3, h4, h5 {
 }
 
 #tasks .card-body {
-    background-color: #f5f5dc; /* Background Color */
+    background-color: #f5f5dc; 
 }
 
 #tasks .card-title {
-    color: #141313; /* Primary Color */
+    color: #141313;
 }
 
 #tasks .card-text {
-    color: #888870; /* Secondary Color */
+    color: #888870;
 }
 
 #tasks .btn-accent {
-    background-color: #c9c4ad; /* Accent Color */
-    border-color: #DFAD49; /* Accent Color */
+    background-color: #c9c4ad; 
+    border-color: #DFAD49; 
 }
 
 #tasks .btn-accent:hover {
-    background-color: #b3ae98; /* Lighter shade of Accent Color on hover */
-    border-color: #CAA642; /* Lighter shade of Accent Color on hover */
+    background-color: #b3ae98; 
+    border-color: #CAA642; 
 }
 
 #footer .text-color{
