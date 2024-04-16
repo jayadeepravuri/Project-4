@@ -23,19 +23,20 @@
         {% endblock %}
 
         <title>Agape</title>
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="{% static 'favicon/favicon.ico' %}">
     </head>
     <body>
         <div class="fill-viewport-height bg-color">
             <!-- Navigation-->
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top py-3" id="mainNav">
                 <div class="container px-4 px-lg-5">
-                    <a class="navbar-brand primary-color fs-3" href="{% url "home" %}">AGAPE</a>
+                    <a class="navbar-brand Logo text-color fs-3" href="{% url "home" %}">
+                        AGAPE</a>
                     <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav ms-auto">
-                            <li class="nav-item"><a class="nav-link primary-color" href="{% url 'home' %}#about">About</a></li>
                             <li class="nav-item"><a class="nav-link primary-color" href="{% url 'home' %}#Connect">Values</a></li>
+                            <li class="nav-item"><a class="nav-link primary-color" href="{% url 'home' %}#about">About</a></li>
                             <li class="nav-item"><a class="nav-link primary-color" href="{% url 'home' %}#tasks">Connect</a></li>
                             <li class="nav-item"><a class="nav-link primary-color" href="{% url 'home' %}#contact">Contact</a></li>
                             {% if user.is_authenticated %}
@@ -76,44 +77,39 @@
 
      
     <!--footer-->
-    <footer class="bg-dark  mt-0 ">
+    <footer id="footer" class=" bg-dark mt-0">
         <div class="container px-4 py-3 bg-dark">
             <ul class="list-inline text-center mb-4">
                 <li class="list-inline-item">
                     <a href="https://www.facebook.com/AgapeMDU" target="_blank" aria-label="Visit our Facebook page (opens in a new tab)">
                         <span class="fa-stack fa-lg">
-                            <i class="fa-brands fa-facebook fa-stack-1x primary-color hover-white"></i>
+                            <i class="fab fa-facebook-f fa-stack-1x text-color"></i>
                         </span>
                     </a>
                 </li>
                 <li class="list-inline-item">
                     <a href="https://www.instagram.com/" target="_blank" aria-label="Visit our Instagram page (opens in a new tab)">
                         <span class="fa-stack fa-lg">
-                            <i class="fa-brands fa-instagram fa-stack-1x primary-color hover-white"></i>
-                        </span>
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                    <a href="https://github.com/jayadeepravuri" target="_blank" aria-label="Visit our developers GitHub page (opens in a new tab)">
-                        <span class="fa-stack fa-lg">
-                            <i class="fab fa-github fa-stack-1x primary-color hover-white"></i>
+                            <i class="fab fa-instagram fa-stack-1x text-color"></i>
                         </span>
                     </a>
                 </li>
             </ul>
-            <p class="m-0 text-center text-white">Copyright &copy; Agape Sweden 2024</p>
+            <p class="m-0 text-center text-color">Copyright &copy; Agape Sweden 2024</p>
         </div>
     </footer>
+    
     
     
   
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <!-- Custom JS -->
-    
     <!-- font awesome script -->
     <script src="https://kit.fontawesome.com/076967cb18.js" crossorigin="anonymous"></script>
      <!-- Bootstrap Icons-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+
+
     </body>
 </html>

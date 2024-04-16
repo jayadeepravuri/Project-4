@@ -1,16 +1,16 @@
-@import url("https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" );
-@import url("https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic");
+@import url("https://fonts.googleapis.com/css2?family=Arsenal:wght@400;700&display=swap");
 
 body {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    
+    font-family: 'Arsenal', sans-serif;
 }
 
 h1, h2, h3, h4, h5 {
-    font-family: 'Sancreek', serif;
+    font-family: 'Arsenal', sans-serif;
 }
 
-* Primary Color */
+
+
+/* Primary Color */
 .primary-color {
     color: #E59A59;
 }
@@ -20,16 +20,20 @@ h1, h2, h3, h4, h5 {
     color: #888870;
 }
 
+.Logo .text-color {
+    color: #f5f5dc;
+}
+
 /* Background Color */
 .bg-color {
-    background-color: #FFD5AF;
+    background-color: #f9f8f1;
 }
 .bg-color-1 {
-    background-color: #FFC08A; /* Light Orange */
+    background-color: #f9f8f1; 
 }
 
 .bg-color-2 {
-    background-color: #E59A59; /* Dark Orange */
+    background-color: #f5f5dc; 
 }
 
 /* Text Color */
@@ -39,12 +43,6 @@ h1, h2, h3, h4, h5 {
 
 .text-muted {
     color: #77777714;
-}
-
-
-/* Accent Color */
-.accent-color {
-    color:#DFAD49;
 }
 
 
@@ -70,11 +68,17 @@ h1, h2, h3, h4, h5 {
     overflow: hidden;
     position: relative;
     top: 0;
+    
+}
+.masthead .text-color{
+    color:#FFFFFF;
+    text-shadow: 2px 2px 5px #FFFFFF;
 }
 
 .bg-image {
-    background: url('https://res.cloudinary.com/dxkkmbsmz/image/upload/v1712666467/pexels-robert-clark-20083468_dhhfa2.jpg') no-repeat center center / cover;
+    background: url('https://res.cloudinary.com/dxkkmbsmz/image/upload/v1713255562/pexels-elina-fairytale-4543646_v8ku6z.jpg') no-repeat center center / cover;
     height: 80vh;
+    background-position: center 20% ; 
     width: 100%;}
 
  /* about section*/
@@ -91,11 +95,12 @@ h1, h2, h3, h4, h5 {
 
 /* Custom CSS */
 #tasks .card {
-    border: none;
+    border:#491609,ridge;
+
 }
 
 #tasks .card-body {
-    background-color: #FFD5AF; /* Background Color */
+    background-color: #f5f5dc; /* Background Color */
 }
 
 #tasks .card-title {
@@ -107,15 +112,19 @@ h1, h2, h3, h4, h5 {
 }
 
 #tasks .btn-accent {
-    background-color: #DFAD49; /* Accent Color */
+    background-color: #c9c4ad; /* Accent Color */
     border-color: #DFAD49; /* Accent Color */
 }
 
 #tasks .btn-accent:hover {
-    background-color: #CAA642; /* Lighter shade of Accent Color on hover */
+    background-color: #b3ae98; /* Lighter shade of Accent Color on hover */
     border-color: #CAA642; /* Lighter shade of Accent Color on hover */
 }
 
+#footer .text-color{
+    color:#f5f5dc
+
+}
 
 /* account form */
 .push-down {
@@ -123,72 +132,29 @@ h1, h2, h3, h4, h5 {
     top: 3rem;
 }
 
-#signupform .btn-accent {
-    background-color: #DFAD49; /* Accent Color */
-    border-color: #DFAD49; /* Accent Color */
-
-}
-#signupform .btn-accent:hover {
-    background-color: #CAA642; /* Lighter shade of Accent Color on hover */
-    border-color: #CAA642; /* Lighter shade of Accent Color on hover */
+#volunteerform .text-color {
+    color: #141313;
 }
 
-#loginform .btn-accent {
-    background-color: #DFAD49; /* Accent Color */
-    border-color: #DFAD49; /* Accent Color */
-
-}
-#loginform .btn-accent:hover {
-    background-color: #CAA642; /* Lighter shade of Accent Color on hover */
-    border-color: #CAA642; /* Lighter shade of Accent Color on hover */
-}
-
-#volunteerform .btn-accent {
-    background-color: #DFAD49; /* Accent Color */
-    border-color: #DFAD49; /* Accent Color */
-
-}
-#volunteerform .btn-accent:hover {
-    background-color: #CAA642; /* Lighter shade of Accent Color on hover */
-    border-color: #CAA642; /* Lighter shade of Accent Color on hover */
-}
-
-#volunteerhome .btn-accent {
-    background-color: #DFAD49; /* Accent Color */
-    border-color: #DFAD49; /* Accent Color */
-
-}
-#volunteerhome .btn-accent:hover {
-    background-color: #CAA642; /* Lighter shade of Accent Color on hover */
-    border-color: #CAA642; /* Lighter shade of Accent Color on hover */
-}
-
-#logoutpage .btn-accent {
-    background-color: #DFAD49; /* Accent Color */
-    border-color: #DFAD49; /* Accent Color */
-
-}
-#logoutpage .btn-accent:hover {
-    background-color: #CAA642; /* Lighter shade of Accent Color on hover */
-    border-color: #CAA642; /* Lighter shade of Accent Color on hover */
-}
-
-#volunteer-detail .btn-accent {
-    background-color: #DFAD49; /* Accent Color */
-    border-color: #DFAD49; /* Accent Color */
-
-}
-#volunteer-detail .btn-accent:hover {
-    background-color: #CAA642; /* Lighter shade of Accent Color on hover */
-    border-color: #CAA642; /* Lighter shade of Accent Color on hover */
-}
-
+#signupform .btn-accent,
+#loginform .btn-accent,
+#volunteerform .btn-accent,
+#volunteerhome .btn-accent,
+#logoutpage .btn-accent,
+#volunteer-detail .btn-accent,
 #profile .btn-accent {
-    background-color: #DFAD49; /* Accent Color */
+    background-color: #c9c4ad; /* Accent Color */
     border-color: #DFAD49; /* Accent Color */
 
 }
+
+#signupform .btn-accent:hover,
+#loginform .btn-accent:hover,
+#volunteerform .btn-accent:hover,
+#volunteerhome .btn-accent:hover,
+#logoutpage .btn-accent:hover,
+#volunteer-detail .btn-accent:hover,
 #profile .btn-accent:hover {
-    background-color: #CAA642; /* Lighter shade of Accent Color on hover */
+    background-color: #b3ae98; /* Lighter shade of Accent Color on hover */
     border-color: #CAA642; /* Lighter shade of Accent Color on hover */
 }

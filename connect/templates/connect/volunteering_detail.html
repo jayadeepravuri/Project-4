@@ -2,59 +2,57 @@
 {% block content %}
 {% load account %}
 
-<div id="volunteer-detail"class="container mt-5">
-
-  <div class="d-flex justify-content-center push-down">
-    <div class="card p-3 m-3 text-center w-75 pb-5">
-      <div>
-        <h2 class="text-center">{{ volunteering.date_of_volunteering|date:"l j F Y" }}</h2><br>
-      </div>
-
-      {% if user.is_superuser %}
-      <h3><i class="fa-regular fa-user"></i> User: {{ volunteering.user }}</h3>
-      {% endif %}
-      <h3>{{ volunteering.task }}</h3>
-      {% if volunteering.comments %}
-      <h3><i class="fa-regular fa-comment"></i> Message:</h3>
-      <p>{{ volunteering.comments }}</p>
-      {% endif %}
-      {% if volunteering.request_covolunteer %}
-        <p>Requested volunteer</p>
-      {% endif %}
-      
-      {% if volunteering.confirmed %}
-        <p class="text-success"><i class="fa-regular fa-circle-check"></i> Confirmed</p>
-      {% else %}
-        <p class="text-danger"><i class="fa-regular fa-circle-xmark"></i> Not Yet Confirmed</p>
-        {% if user.is_superuser %}
-          <form method="post" action="{% url 'confirm-volunteer' pk=object.pk %}">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-success btn-accent">Confirm Booking</button>
-          </form>
-        {% endif %}
-      {% endif %}
-      
-      {% if user == volunteering.user %}
-
-      <div class="d-flex justify-content-center p-3 ">
-        <a class="btn btn-accent pt-2" href="{% url 'volunteer-update' volunteering.id %}" ><h4>Edit Volunteering</h4></a>
-      </div>
-      <div class="d-flex justify-content-center p-3 ">
-        <a class="btn btn-accent pt-2" href="{% url 'volunteer-delete' volunteering.id %}" ><h4>Cancel Volunteering</h4></a>
-      </div>
-        
-      {% elif user.is_superuser %}
-        <div class="d-flex justify-content-center p-3 ">
-          <a class="btn btn-accent pt-2" href="{% url 'volunteer-delete' volunteering.id %}" ><h4>Delete Volunteering</h4></a>
+<div id="volunteer-detail" class="container push-down mt-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+      <div class="card p-3 m-3 text-center">
+        <div>
+          <h2 class="text-center">{{ volunteering.date_of_volunteering|date:"l j F Y" }}</h2><br>
         </div>
-      {% endif %}
-      <div class="d-flex justify-content-center  ">
-        <a class="btn btn-accent pt-3" href="{% url 'volunteer-home' %}" ><h4>Back</h4></a>
+
+        {% if user.is_superuser %}
+        <h3 class="text-uppercase"><i class="fa-regular fa-user"></i> User: {{ volunteering.user }}</h3>
+        {% endif %}
+        <h3>{{ volunteering.task }}</h3>
+        {% if volunteering.comments %}
+        <h3><i class="fa-regular fa-comment"></i> Message:</h3>
+        <p>{{ volunteering.comments }}</p>
+        {% endif %}
+        {% if volunteering.request_covolunteer %}
+          <p>Requested volunteer</p>
+        {% endif %}
+        
+        {% if volunteering.confirmed %}
+          <p class="text-success"><i class="fa-regular fa-circle-check"></i> Confirmed</p>
+        {% else %}
+          <p class="text-danger"><i class="fa-regular fa-circle-xmark"></i> Not Yet Confirmed</p>
+          {% if user.is_superuser %}
+            <form method="post" action="{% url 'confirm-volunteer' pk=object.pk %}">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-success mb-3 btn-accent">Confirm Booking</button>
+            </form>
+          {% endif %}
+        {% endif %}
+        
+        {% if user == volunteering.user %}
+        <div class="d-flex justify-content-center p-3">
+          <a class="btn btn-accent" href="{% url 'volunteer-update' volunteering.id %}" ><h4>Edit Volunteering</h4></a>
+        </div>
+        <div class="d-flex justify-content-center p-3">
+          <a class="btn btn-accent" href="{% url 'volunteer-delete' volunteering.id %}" ><h4>Cancel Volunteering</h4></a>
+        </div>
+          
+        {% elif user.is_superuser %}
+          <div class="d-flex justify-content-center p-3">
+            <a class="btn btn-accent" href="{% url 'volunteer-delete' volunteering.id %}" ><h4>Delete Volunteering</h4></a>
+          </div>
+        {% endif %}
+        <div class="d-flex justify-content-center">
+          <a class="btn btn-accent" href="{% url 'volunteer-home' %}" ><h4>Back</h4></a>
+        </div>
       </div>
-      
     </div>
   </div>
-
 </div>
 
 {% endblock %}
