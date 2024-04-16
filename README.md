@@ -1,12 +1,11 @@
-# [Wild Swim Scotland](https://wild-swim-scotland-47f727d45ac1.herokuapp.com/ "take you to the Wild Swim Deployed Page")
+# [AGAPE](https://wild-swim-scotland-47f727d45ac1.herokuapp.com/ "take you to the Agape's Deployed Page")
 
-![am-i-responsive-image](documentation/readme-images/am-i-responsive.png "am-i-responsive-image")
+![am-i-responsive-image](documentation/readme-images/am-i-responsive")
 
 # Introduction
 
-Wild Swim Scotland is a site for the community of wild swimmers within Scotland to connect and find out about upcoming swims they may wish to participate in. The staff users will post upcoming swims so that their community can join a swim, and site users can go back to the site to view their upcoming swims.
+The platform was built utilizing Django, boasting comprehensive CRUD operations and an intuitive user interface to facilitate volunteering for agape-related tasks. Users receive alerts in the form of notification boxes for any updates to their accounts or bookings. Administrators enjoy additional privileges, such as the ability to search for volunteers and their selected tasks based on dates and usernames.
 
-The site is aimed at all wild swimmers around Scotland and hopes to help build a sense of community for these lovers of the cold!
 
 [Live Site Here](https://wild-swim-scotland-47f727d45ac1.herokuapp.com/ "take you to the Wild Swim Deployed Page")
 
@@ -53,12 +52,11 @@ The site is aimed at all wild swimmers around Scotland and hopes to help build a
 
 The goals of the sites functionality are:
 
-- List View: users can see all the swim cards, even if they have not registered or logged in
+- List View: users will get introduced about agape and can view the tasks they can volunteer
 - Register: users can register to the site so that they can use the sites functionality 
-- Logged In: users have the ability to join a swim and view their upcoming joined swims
+- Logged In: users have the ability to volunteer for a task in agape and can edit/cancel their volunteering
 - Logged Out: users are asked if they wish to sign out of the site
-- Staff login: staff users can create a new swims, read, edit and delete the swims they have created from their staff account
-- Admin: can create new staff users
+- Admin: can view the task that are volunteered and can also volunteer himself in one of the available tasks
 
 # Agile Development
 
@@ -229,16 +227,11 @@ This is why I chose to display the swims as swim cards which have a very clean l
 
 ![Homepage](documentation/readme-images/homepage.png " Home page image ")
 
-The landing page of the site shows a non logged in / non registered user the swims cards and gives and explanation of what Wild Swim Scotland is about. 
-The text 
-*Please see our upcoming swims, with times, dates and difficulty level.
-Register an account with us and save your swims so that you can come back to see the details.
-There is no limit on the number of swims you can join, or how many people can join them.
-We'd love to see you there!*
-Gives users a clear indication on what the site offers them and what actions they should next perform.
-
-The landing page has 2 call to actions, Register and Login. 
-
+The landing page of the site of a non logged in / non registered user introduces them to agape and motivates them to volunteer for the tasks for agape . 
+The page sections 
+*values, and about us* intorduces the site visitor to agape and motivates them to volunteer for the tasks presented in the *connect* page section. 
+Further , the page sections *contact*, is provided to give the location and contact the admin for feedback and queries
+The landing page has 2 call to actions, *Register* and *Login*. 
 The landing page is responsive for different screen sizes and scales down for easy mobile or tablet use. 
 
 ### Login
@@ -260,36 +253,59 @@ If the username and password are not correct this error will show.
 
 The register page welcomes users to the site with a friendly greeting. It lets users know that in order to use the site functions they must register an account.
 
-It offers them space for a username, password and then rechecks the password to ensure it matches and there were no errors.
+It offers them space for a username, email(optional) password and then rechecks the password to ensure it matches and there were no errors.
 An example of some of the errors:
 
 ![register form errors](documentation/readme-images/register-form-errors.png " register form errors image ")
 
-The text at the bottom lets users know who already have an account that they can sign in using the login page.
+The text at the top lets users know who already have an account that they can sign in using the login page.
 
 ## Logged in User
 
-### Swim Cards
 
-![joined swims button](documentation/readme-images/join-swim-button.png "joined-swim-button image ")
+### Volunteer form page
 
-The first thing the user will notice when the have logged in is that there is now a Join Swim button on the swim cards. This allows users to 'save' swims they are interested in and these swims will appear in their upcoming swims page.
+![Volunteer form page](documentation/readme-images/join-swim-button.png "joined-swim-button image ")
 
-When clicking join swim the user is redirected to the Upcoming Swims page.
+The user will notice when the have logged in is that there is now more information regarding the volunteering oppurtunities and when agape happens. 
+The user can now choose the task he wants to volunteer, the date he wants to volunteer, write an additional message regarding the task he chooses to volunteer. 
+He can further notify the user and request for a covolunteer.
+Now the user submits the form by cliking on the volunteer button and is redirected to the Volunteer home page 
+additionally errors will be displayed, if the user chooses a task/date which is not available, an error message is displayed. also, if the user chooses a date in the past or if the date is not a wednesday, an error message is displayed.
 
-I would have liked to change the Join Swim button to say Swim Joined however due to time time constraint this was not possible.
+### Volunteer home page
 
-### Your Upcoming Swims
+#### Logged in user
+![Volunteer home page](documentation/readme-images/join-swim-button.png "joined-swim-button image ")
+Now the user is taken to the page where he can view all the tasks that he has choosen to volunteer on the left and his account details on the right.
+when clicked on the card he is redirected to the volunteer-detail page, where he can edit or cancel his volunteering.*(more on volunteer-detail page is explained in the section below)*
+Furthermore, the user can update his account information by clicking on the account details button.
+Also, the user can choose to volunteer for more tasks by clicking the volunteer button below the account details button.
 
+#### Admin
+![Volunteer home page](documentation/readme-images/join-swim-button.png "joined-swim-button image ")
+For an admin, the volunteer home page is similar as an normal user, but he is provided with an additional search form on the right coloumn, 
+where he can search for tasks the the user have choosen to volunteered by name or date or both. 
+On the left column, admin can view all the volunteerings by default and is changed according to the search filter options.
+
+### Volunteer-detail page
+
+#### Logged in user
 ![joined swims](documentation/readme-images/joined-swim-page.png " joined-swim-page image ")
 
-The 'Your Upcoming Swims' page lets users know what swims they have joined previously and allows them to remove swims from their swim list. 
+when the user clickes on his volunteering card he is redirected to the volunteer detail page. 
+He is now displayed with the choosen volunteer card , which gives the information like the date of volunteering, task, requested volunteer(if requested), confirmed/not confirmed yet. and 3 additional buttons.
+When clicked on the Edit Volunteering button, the user is directed to the volunteer form page with the predefined user choices, where he can further make changes to his volunteering task.[no swims joined](documentation/readme-images/no-swims-yet.png " no-swims-joined image ")
+when clicked on the cancel volunteering button, he is directed to the dete volunteering page, 
+where the user is asked again if he wants to delete his volunteering task![no swims joined](documentation/readme-images/no-swims-yet.png " no-swims-joined image ")
+when clicked on back button, the user is taken back to the volunteer home page
 
-If the user has not yet joined an upcoming swim they will see the message "No swims joined yet"
-
+#### Admin
 ![no swims joined](documentation/readme-images/no-swims-yet.png " no-swims-joined image ")
-
-The page is solely for the user themselves and does not link to the staff user section of the site. As stated on the homepage, there is no limit to the number of people who can join a swim so therefore staff do not need to know who exactly will be attending. This section of the site is so that users can come back and quickly see what swims they were interested in and check the details easily. 
+when the admin clickes on his volunteering card he is redirected to the volunteer detail page, the volunteer detail page is same as a normal user.
+Additionally, the admin is now provided with an additional button where he can confirm the available volunteering tasks.
+when the admin clicks on the other users volunteering card, he cannot edit their choices, but just cancel them.
+He can only edit his own volunteering task as usual.
 
 ### Logout
 
@@ -297,60 +313,13 @@ The page is solely for the user themselves and does not link to the staff user s
 
 The logout page checks if the user does wish to sign out of the site.
 
-## Staff User
-
-### Add Swim
-
-![add swim form](documentation/readme-images/add-swim-form.png " add swim form image ")
-
-The add swim page allows staff users to add new swims to the swim list. If they have not provided an image for their swim, the placeholder image will be added for them.
-The Add Swim page has warnings for both the date, time and swim difficulty fields if they are not entered correctly.
-To prevent users from enterting the date in the wrong format the placeholder text 'YYYY-MM-DD' has been added.
-To prevent users from enterting the time in the wrong format the placeholder text '00:00:00' has been added.
-to prevent users from enterting the swim difficulty incorrectly the 'Between 1-5 text' has been added.
-If the above fields are not entered correctly a warning will show.
-
-![add swim warnings](documentation/readme-images/add-swim-warnings.png " add swim warnings image ")
-
-
-## Edit and Delete buttons
-
-![edit and delete buttons](documentation/readme-images/edit-and-delete-button.png " edit and delete button image ")
-
-The edit and delete buttons only appear to a swim that the specific staff user has added, they cannot edit or delete swims other staff members have created.
-
-When clicking on the edit swim button the form has the same functions as the add swim form, however the swim details are already populated so that the staff user can edit them according. The same error warning functions as the add swim form.
-
-## Delete Swim
-
-When clicking the delete swim button the user is asked if they are sure they want to delete the swim before the action is performed. 
-
-![delete warning](documentation/readme-images/delete-swim.png " delete swim image ")
-
 ## Future Features
 
 There are some future features that I would like to add to the project to improve user functions.
 
-- Reviews:
-I began to create the review feature of the site, where users could come in and add reviews for different swim locations so that others could make a more informed decision on if they wanted to join a particular swim. However this feature was moved to future implementation as it could not be fully realised to the standard of the project at this time.
-
-- Community Board:
-It would be good to have a community board for wild swimmers to chat to each other and post stories and photos from their swims and connect together
-
-- Date Picker:
-Currently the date picker allows staff users to pick any date, a future implimentation would be to restrict the date picker to only have future dates
-
-- Past Swims:
-A section of the community page where past swims would automatically go after their date was passed so users could see what type of swims they had done previously
-
-- Joined Swims saved to staff dashboard:
-In the future I would like to have the join swim button log which user has joined which swim and have a staff dashboard area so that staff users could see how many people had signed up to that particular swim. 
-
-- Join Swim button change to 'Swim Joined':
-In the future I would like to add some jinja templating to change the 'Join Swim' button to say 'Swim Joined' - this was wanted for this version of the project however due to time constraints it was not able to be tested properly and applied.
-
-- Message alerts:
-Messages have been added into the views for both succesfful actions and unsuccessful actions, in the future I would like to use jinja templating to display these messages to the use rather than just redirecting them - this was wanted for this version of the project however due to time constraints it was not able to be tested properly and applied.
+- Email notifications:
+  It would be nice to notify users regarding their tasks they have choosen to volunteered, and also, notify them when the admin confirms their task.
+-
 
 
 [Back to Top](#wild-swim-scotland)
