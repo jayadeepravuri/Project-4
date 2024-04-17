@@ -1,115 +1,93 @@
 {% load static %}
-
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
-
-
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Agape sweden MDH västerås" />
-        
-        {% block css %} 
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{% static 'css/style.css' %}" rel="stylesheet" >
-        <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        {% endblock %}
-
-        {% block head %}
-        {% endblock %}
-
-        <title>Agape</title>
-        <link rel="icon" type="image/x-icon" href="{% static 'favicon/favicon.ico' %}">
-    </head>
-    <body>
-        <div class="fill-viewport-height bg-color">
-            <!-- Navigation-->
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top py-3" id="mainNav">
-                <div class="container px-4 px-lg-5">
-                    <a class="navbar-brand Logo text-color fs-3" href="{% url "home" %}">
-                        AGAPE</a>
-                    <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navbarResponsive">
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item"><a class="nav-link primary-color" href="{% url 'home' %}#Connect">Values</a></li>
-                            <li class="nav-item"><a class="nav-link primary-color" href="{% url 'home' %}#about">About</a></li>
-                            <li class="nav-item"><a class="nav-link primary-color" href="{% url 'home' %}#tasks">Connect</a></li>
-                            <li class="nav-item"><a class="nav-link primary-color" href="{% url 'home' %}#contact">Contact</a></li>
-                            {% if user.is_authenticated %}
-                            <li class="nav-item"><a class="nav-link primary-color" href="{% url "volunteer-create" %}">Volunteer</a></li>
-                            <li class="nav-item"><a class="nav-link primary-color" href="{% url "volunteer-home" %}">My Account</a></li>
-                            <li class="nav-item"><a class="nav-link primary-color" href="{% url 'account_logout' %}">Logout</a></li>
-                            {% else %}
-                            <li class="nav-item"><a class="nav-link primary-color" href="{% url 'account_signup' %}">Register</a></li>
-                            <li class="nav-item"><a class="nav-link primary-color" href="{% url 'account_login' %}">Login</a></li>
-                            {% endif %}
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        
-    
-    
-
-        <!-- Alert Box -->
-        <div class='container-fluid mt-5 pt-4' id="alert-container">
-            <div class="row justify-content-center align-items-center">
-                <div class="col ">
-                    {% for message in messages %}
-                        <div class="alert {{ message.tags  }} alert-dismissible fade show text-center" id="msg" role="alert">
-                             {{ message | safe }}
-                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    {% endfor %}
-                </div>
+   <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+      <meta name="description" content="Agape sweden MDH västerås" />
+      {% block css %} 
+      <!-- Core theme CSS (includes Bootstrap)-->
+      <link href="{% static 'css/style.css' %}" rel="stylesheet" >
+      <!-- Bootstrap CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+      {% endblock %}
+      {% block head %}
+      {% endblock %}
+      <title>Agape</title>
+      <link rel="icon" type="image/x-icon" href="{% static 'favicon/favicon.ico' %}">
+   </head>
+   <body>
+      <div class="fill-viewport-height bg-color">
+         <!-- Navigation-->
+         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top py-3" id="mainNav">
+            <div class="container px-4 px-lg-5">
+               <a class="navbar-brand Logo text-color fs-3" href="{% url "home" %}">
+               AGAPE</a>
+               <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+               <div class="collapse navbar-collapse" id="navbarResponsive">
+                  <ul class="navbar-nav ms-auto">
+                     <li class="nav-item"><a class="nav-link primary-color" href="{% url 'home' %}#Connect">Values</a></li>
+                     <li class="nav-item"><a class="nav-link primary-color" href="{% url 'home' %}#about">About</a></li>
+                     <li class="nav-item"><a class="nav-link primary-color" href="{% url 'home' %}#tasks">Connect</a></li>
+                     <li class="nav-item"><a class="nav-link primary-color" href="{% url 'home' %}#contact">Contact</a></li>
+                     {% if user.is_authenticated %}
+                     <li class="nav-item"><a class="nav-link primary-color" href="{% url "volunteer-create" %}">Volunteer</a></li>
+                     <li class="nav-item"><a class="nav-link primary-color" href="{% url "volunteer-home" %}">My Account</a></li>
+                     <li class="nav-item"><a class="nav-link primary-color" href="{% url 'account_logout' %}">Logout</a></li>
+                     {% else %}
+                     <li class="nav-item"><a class="nav-link primary-color" href="{% url 'account_signup' %}">Register</a></li>
+                     <li class="nav-item"><a class="nav-link primary-color" href="{% url 'account_login' %}">Login</a></li>
+                     {% endif %}
+                  </ul>
+               </div>
             </div>
-        </div>
-
-        
-        {% block content %}
-        {% endblock %}
-
-     </div>
-
-     
-    <!--footer-->
-    <footer id="footer" class=" bg-dark mt-0">
-        <div class="container px-4 py-3 bg-dark">
+         </nav>
+         <!-- Alert Box -->
+         <div class='container-fluid mt-5 pt-4' id="alert-container">
+            <div class="row justify-content-center align-items-center">
+               <div class="col ">
+                  {% for message in messages %}
+                  <div class="alert {{ message.tags  }} alert-dismissible fade show text-center" id="msg" role="alert">
+                     {{ message | safe }}
+                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                  {% endfor %}
+               </div>
+            </div>
+         </div>
+         {% block content %}
+         {% endblock %}
+      </div>
+      <!--footer-->
+      <footer id="footer" class=" bg-dark mt-0">
+         <div class="container px-4 py-3 bg-dark">
             <ul class="list-inline text-center mb-4">
-                <li class="list-inline-item">
-                    <a href="https://www.facebook.com/AgapeMDU" target="_blank" aria-label="Visit our Facebook page (opens in a new tab)">
-                        <span class="fa-stack fa-lg">
-                            <i class="fab fa-facebook-f fa-stack-1x text-color"></i>
-                        </span>
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                    <a href="https://www.instagram.com/" target="_blank" aria-label="Visit our Instagram page (opens in a new tab)">
-                        <span class="fa-stack fa-lg">
-                            <i class="fab fa-instagram fa-stack-1x text-color"></i>
-                        </span>
-                    </a>
-                </li>
+               <li class="list-inline-item">
+                  <a href="https://www.facebook.com/AgapeMDU" target="_blank" aria-label="Visit our Facebook page ">
+                  <span class="fa-stack fa-lg">
+                  <i class="fab fa-facebook-f fa-stack-1x text-color"></i>
+                  </span>
+                  </a>
+               </li>
+               <li class="list-inline-item">
+                  <a href="https://www.instagram.com/" target="_blank" aria-label="Visit our Instagram page ">
+                  <span class="fa-stack fa-lg">
+                  <i class="fab fa-instagram fa-stack-1x text-color"></i>
+                  </span>
+                  </a>
+               </li>
             </ul>
             <p class="m-0 text-center text-color">Copyright &copy; Agape Sweden 2024</p>
-        </div>
-    </footer>
-    
-    
-    
-  
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <!-- font awesome script -->
-    <script src="https://kit.fontawesome.com/076967cb18.js" crossorigin="anonymous"></script>
-     <!-- Bootstrap Icons-->
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
-
-
-    </body>
+         </div>
+      </footer>
+      <!-- Bootstrap JS -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+      <!-- font awesome script -->
+      <script src="https://kit.fontawesome.com/076967cb18.js" crossorigin="anonymous"></script>
+      <!-- Bootstrap Icons-->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+   </body>
 </html>

@@ -15,7 +15,7 @@ The platform was built utilizing Django, boasting comprehensive CRUD operations 
 - [Agile Development](#agile-development)
 - [User Stories](#user-stories)
 - [User Experience](#user-experience)
-    - [Wireframes](#wireframes)
+    - [Web Templates](#web-templates)
     - [Database Schema](#database-schema)
     - [Typography](#typography)
     - [Colour Palette](#colour-palette)
@@ -46,7 +46,7 @@ The platform was built utilizing Django, boasting comprehensive CRUD operations 
     - [Education](#education)
 - [Acknowledgements](#acknoledgements)
 
-[Back to Top](#wild-swim-scotland)
+[Back to Top](#agape)
 
 # Key Project Goals
 
@@ -64,7 +64,7 @@ A Kaban board was used in GitHub to create the agile development process – see
 
 User stories were labelled using the MoSCoW method.
 
-[Back to Top](#wild-swim-scotland)
+[Back to Top](#agape)
 
 # User Stories
 
@@ -163,7 +163,7 @@ Assignments
 
 # User Experience
 
-## Wireframes
+## Web Templates
 
 ![HomePage](documentation/readme%20images/homepage.png "Lucid image")
 ![SignIn ](documentation/readme%20images/sign%20in%20page.png "Lucid image")
@@ -212,7 +212,7 @@ The logo used in the head section is agape community's official logo. Permission
 I aimed for the website's design to convey a sense of warmth and hospitality to visitors. My goal was to ensure that navigating the site would be effortless and intuitive, providing users with easy access to the information they seek. Rather than overwhelming visitors with excessive details about Agape, I focused on presenting essential information in a clear and concise manner. Through strategic decisions, I endeavored to introduce Agape in a manner that would resonate positively with users.  
 
 
-[Back to Top](#wild-swim-scotland)
+[Back to Top](#agape)
 
 # Features
 
@@ -273,7 +273,7 @@ additionally errors will be displayed, if the user chooses a task/date which is 
 ### Volunteer home page
 
 #### Logged in user
-![Volunteer home page](documentation/readme%20images/Volunteer%20home%20agape.png "joined-swim-button image ")
+![Volunteer home page](documentation/readme%20images/Volunteer%20home%20agape.png "volunteer home page ")
 Now the user is taken to the page where he can view all the tasks that he has choosen to volunteer on the left and his account details on the right.
 when clicked on the card he is redirected to the volunteer-detail page, where he can edit or cancel his volunteering.*(more on volunteer-detail page is explained in the section below)*
 Furthermore, the user can update his account information by clicking on the account details button.
@@ -314,7 +314,7 @@ There are some future features that I would like to add to the project to improv
 - Social media signup
 - can add a profile picture and update their account information.
  
-[Back to Top](#wild-swim-scotland)
+[Back to Top](#agape)
 
 # Technologies Used
 
@@ -410,7 +410,7 @@ DATABASES = {
 
 }
 
-[Back to Top](#wild-swim-scotland)
+[Back to Top](#agape)
 
 # Credits
 
@@ -434,7 +434,8 @@ The logo image in the connect section for the task cards was created in canva.
 
 # Acknowledgements
 - Agape group in sweden, who allowed me to build a project for the group and for providing me with ideas.
+- Inspiration from the projects of my colleagues at code institute.
 - Friends and family who helped test the site on different devices and give real world user feedback
 
 
-[Back to Top](#wild-swim-scotland)
+[Back to Top](#agape)
