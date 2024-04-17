@@ -1,6 +1,6 @@
 # [AGAPE](https://wild-swim-scotland-47f727d45ac1.herokuapp.com/ "take you to the Agape's Deployed Page")
 
-![am-i-responsive-image](documentation/readme-images/am-i-responsive")
+![am-i-responsive-image](documentation/readme%20images/am%20i%20responsive.png)
 
 # Introduction
 

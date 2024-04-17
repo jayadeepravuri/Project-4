@@ -1,20 +1,10 @@
 from django.db import models
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
-from cloudinary.models import CloudinaryField
-from django.contrib.auth import get_user_model
-
-
-# Create your models here.
-
-
-User = get_user_model()
 
 class Task(models.Model):
     task_name = models.CharField(max_length=100)
     description = models.TextField()
-    
-
 
 
     def __str__(self):
