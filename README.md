@@ -168,50 +168,51 @@ Future user stories were also created for the following:
 
 ## Wireframes
 
-![Wireframe Image](documentation/readme-images/wireframe.png "wireframe image")
+![HomePage](documentation/readme-images/wireframe.png "Lucid image")
+![SignIn ](documentation/readme-images/wireframe.png "Lucid image")
+![SignUp ](documentation/readme-images/wireframe.png "Lucid image")
+![VolunteerForm Page](documentation/readme-images/wireframe.png "Lucid image")
+![Volunteer Home ](documentation/readme-images/wireframe.png "Lucid image")
+![Volunteer Home Admin](documentation/readme-images/wireframe.png "Lucid image")
+![Volunteer Detail](documentation/readme-images/wireframe.png "Lucid image")
+![Profile](documentation/readme-images/wireframe.png "Lucid image")
 
 Site structure was created before the site was created to test layout idea.
-After testing UX, a different approach was taken for better flow of the site navigation. 
-Nav bar was moved to middle of page with clear call to actions.
-Main image was removed to create focus on swim card images rather than a header image.
-Logo was moved to middle of page to have more impact. 
 
 ## Database Schema
 
-For this project the Django User Model was used for user account and one custom models with full CRUD were created for creating swims, this model is available for staff users only. 
-A second custom model was created for joining a swim, however this does not have full CRUD as users can only edit and delete their joined swim, rather than create and update.
+The project uses ElephantSQL as PostgreSQL relational database for storing the data.
 
-The data schema was created using [drawSQL](https://drawsql.app/ "drawsql website homepage") before the project was started to get the flow and function of the models. 
-
-Some of the fields in the below image do not reflect the final data types used (such as Cloudinary) – please see the app for the true data types. 
+The data schema was created using [Lucid Chart](https://www.lucidchart.com "Lucid Chart") before the project was started to get the flow and function of the models. 
 
 ![Data Schema Image](documentation/readme-images/new-data-schema.png " Data Schema Image ")
 
 ## Typography
 
-The google font [Oswald](https://fonts.google.com/specimen/Oswald/ "Oswald font") was used throughout the site with different weights for different headings and paragraphs.
+The google font [Poppins](https://fonts.google.com/specimen/Poppins "Poppins") was used throughout the site with different weights for different headings and paragraphs.
 
-I chose this font for its tall height and wide proportions, making it a great choice for readability and also mimicking the swim cards height, making the site flow nicely. Oswald has rounded corners which give it a friendly appearance while still remaining bold and strong.  
+I selected this font due to its tall stature and expansive proportions, which enhance readability.
 
 ## Colour Palette
 
-I chose the colour #0d1a32 as the primary colour to remind people of the water and paired this with a white background for contrast and for a clean look and finish. As the swims will all have an image of a wild swim, either uploaded by the creator or using the default image, the blues in images from the water will help tie in with #0d1a32 as the primary colour. 
-
-Secondary colours #327ab7 and #d6e4f0 were chosen as a continuation of #0d1a32 with an accent colour of #b5e2e0. These blues all represent the water that draws all swimmers to it. 
-
+- The main colors used were based on the the colors in the logo.
+  - #f9f8f1 
+  - #f5f5dc
+  - #491609
+  - #491609
+  - #000000
+  
 ![Color palette Image](documentation/readme-images/colour-palette.png "Color palette Image ")
 
 ### Logo
 
-The wild swim logo was created by Sarah Goodwin using Photoshop and the Oswald font. Waves were added to tie the site user back to the main purpose of the site, wild swimming.
+The logo used in the head section is agape community's official logo. Permission was taken to use the logo
 
 ![Logo Image](documentation/readme-images/ws-logo.png " Logo Image ")
 
 ## Design Choices
 
-I wanted the design of the site to feel fresh and clean, just like how a wild swim makes you feel. I wanted the user experience to be easy to navigate and for the site to be very functional – users can come in, see the details they need, choose which swims to join and interact with each other. I did not want unnecessary detail about the swims as part of the fun of wild swimming is going into nature and letting that be your experience rather than overloading with information.
-
-This is why I chose to display the swims as swim cards which have a very clean look.  
+I aimed for the website's design to convey a sense of warmth and hospitality to visitors. My goal was to ensure that navigating the site would be effortless and intuitive, providing users with easy access to the information they seek. Rather than overwhelming visitors with excessive details about Agape, I focused on presenting essential information in a clear and concise manner. Through strategic decisions, I endeavored to introduce Agape in a manner that would resonate positively with users.  
 
 ![Swim Card](documentation/readme-images/swimcard.png " Swim Card Image ")
 
@@ -300,13 +301,6 @@ when clicked on the cancel volunteering button, he is directed to the dete volun
 where the user is asked again if he wants to delete his volunteering task![no swims joined](documentation/readme-images/no-swims-yet.png " no-swims-joined image ")
 when clicked on back button, the user is taken back to the volunteer home page
 
-#### Admin
-![no swims joined](documentation/readme-images/no-swims-yet.png " no-swims-joined image ")
-when the admin clickes on his volunteering card he is redirected to the volunteer detail page, the volunteer detail page is same as a normal user.
-Additionally, the admin is now provided with an additional button where he can confirm the available volunteering tasks.
-when the admin clicks on the other users volunteering card, he cannot edit their choices, but just cancel them.
-He can only edit his own volunteering task as usual.
-
 ### Logout
 
 ![logout](documentation/readme-images/logout.png " logout image ")
@@ -319,9 +313,9 @@ There are some future features that I would like to add to the project to improv
 
 - Email notifications:
   It would be nice to notify users regarding their tasks they have choosen to volunteered, and also, notify them when the admin confirms their task.
--
-
-
+- Social media signup
+- can add a profile picture and update their account information.
+ 
 [Back to Top](#wild-swim-scotland)
 
 # Technologies Used
@@ -353,7 +347,12 @@ Used to continue to create code and file structure for the respository.
 - [GitHub](https://github.com/ "Link to github webpage")
 GitHub was used to store the code files, README files and asset files after pushing
 - [Heroku](https://id.heroku.com/login "Link to Heroku login")
-Heroku was used to deploy the project. 
+Heroku was used to deploy the project.
+- [Canva]("https://www.canva.com")
+Canva was used to create volunteer card image in connect section
+-[Pexels]("https://www.pexels.com/")
+Pexels was used to download free images for the home page of the website.
+
 
 # Testing
 
@@ -421,71 +420,24 @@ DATABASES = {
 
 ## Content
 
-Wording for the site was all created by Sarah Goodwin
+Content of the agape website is by jayadeep ravuri
 
 ### Images
 
-Images for swim posts were taken from google images of the swim location.
-The logo image was created by Sarah Goodwin on Photoshop
+Images for agape website were taken from pexels.
+The logo image in the connect section for the task cards was created in canva.
 
 ## Education
-
-*Django models additional learning:*
-- [Making queries](https://docs.djangoproject.com/en/5.0/topics/db/queries/ 'django documention for making queries')
-To gain more understanding of making queries for my django modules this page was used, especially for the SwimPosts model.
-
-- [Start Ratings for reviews](https://django-star-ratings.readthedocs.io/en/latest/?badge=latest/ 'how to use start ratings in django')
-I wanted to incorporate star ratings in the review section of the site so this page was used to learn about star ratings in Django. This has been kept in for future implementation
-
-- [Django Validators](https://studygyaan.com/django/how-to-implement-validators-in-django-models?utm_content=cmp-true 'how to use django validators')
-How to use Django validators for the swim difficulty feature 
-
-- [BuyBytes Youtube video on Validators](https://www.youtube.com/watch?v=1x0Zdukpjrs 'BugBytes youtube on Django ORM - Model Field Validators')
-To add a 'swim difficulty' to the SwimPost model I used django validators and the above two sources were used to gain that understanding.
-
-- [Date fields and timezones in Django](https://docs.djangoproject.com/en/5.0/topics/i18n/timezones/ 'django documentation on timezones')
-To gain more understanding about date fields and how they work in django the above page was used.
-
-- [User.is_authenticated](https://docs.djangoproject.com/en/5.0/ref/contrib/auth/ 'django documentation on django.contrib.auth')
-To create the logout, upcoming swims and add swim pages, the above page was used to gain understanding on how to add authenticated user sections.
-
-*Django forms additional learning:*
-- [Editing an inbuilt django form](https://stackoverflow.com/questions/7769805/editing-django-form-as-p 'stack overflow on how to edit dajngo form')
-How to edit inbuilt django forms to be able to style the templates to suit the site better
-
-- [Form Helper](https://django-crispy-forms.readthedocs.io/en/latest/crispy_tag_forms.html 'read-the-docs page on crispy forms')
-Reading on form helpers, decieded to use placeholder function instead for time and date in forms
-
-- [Date Picker](https://www.letscodemore.com/blog/how-to-add-date-input-widget-in-django-forms/#:~:text=In%20this%20case%2C%20we%20are,is%20rendered%20in%20the%20template. 'letscodemore date widget page')
-To gain more understanding of how to add a date picker widget this site was used
-
-*Django views additional learning:*
-- [UpdateViews](https://docs.djangoproject.com/en/5.0/ref/class-based-views/generic-editing/#django.views.generic.edit.DeleteView 'django docoumentation for editing views')
-More info on views, how they work and how to use the UpdateView speciffically 
-
-- [Code.my Youtube video using the DeleteView](https://www.youtube.com/watch?v=8NPOwmtupiI&t=580s 'code.my youtube video on deleting blog posts')
-To gain more understanding of how to created CRUD functionality, these sources were used, especially for the AddSwimView, EditSwimView and DeleteSwimView
-
-- [Restrict access via url](https://docs.djangoproject.com/en/5.0/topics/auth/default/ "Using the Django authentication system")
-How to restrict user from accessing content via the url, for example by typing swim/add to the url without being logged in as a staff member.
-
 *Error Pages*
-- [Adding Error Pages, 404 & 500](https://www.makeuseof.com/create-custom-404-error-page-django/ 'make use of us webpage')
-How to add 404 and 500 pages
-
-*Additional Education*
+- [Code institute course material](https://codeinstitute.net/se)
+  The course material has helped me to create the backend funtionality of this project.
 - [Stack Overflow](https://stackoverflow.com/ "Link to Stack Overflow webpage")
-Stack overflow was used to answer questions as to why certain code may not be performing as expected.
-
+  Stack overflow was used to answer questions as to why certain code may not be performing as expected.
 - [ChatGPT](https://openai.com/blog/chatgpt "link to chatgpt page")
-  ChatGPT was used gain a better understanding of errors faced
-
-- [CluelessBiker/mentoring](https://github.com/CluelessBiker/mentoring "link to CluesslessBiker repo")
-  CluelessBiker mentoring github page was used to check examples of projects, access links to resources such as validators and w3schools, Am I Responsive.
+  ChatGPT was used to gain a better understanding of errors faced.
 
 # Acknowledgements
-
-- Mentor, Lauren-Nicole, for all her help and support, the useful resources she provided and for being a friendly face throughout! Could not have done this project without her!!
+- Agape group in sweden, who allowed me to build a project for the group and for providing me with ideas.
 - Friends and family who helped test the site on different devices and give real world user feedback
 
 
