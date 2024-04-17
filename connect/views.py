@@ -129,7 +129,7 @@ class VolunteeringDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView
     success_url = reverse_lazy('volunteer-home')
 
     def delete(self, request, *args, **kwargs):
-        booking = self.get_object()
+        volunteering = self.get_object()
         messages.success(
             self.request,
             "Your Task has been successfully deleted!",
@@ -156,7 +156,7 @@ class ConfirmVolunteeringView(LoginRequiredMixin, UserPassesTestMixin, UpdateVie
         form.save()
 
         messages.success(self.request,
-                         "The booking has been confirmed!",
+                         "The volunteering has been confirmed!",
                          extra_tags="alert alert-success alert-dismissible",
                          )
         return super().form_valid(form)

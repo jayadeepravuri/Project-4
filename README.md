@@ -56,7 +56,7 @@ The goals of the sites functionality are:
 - Register: users can register to the site so that they can use the sites functionality 
 - Logged In: users have the ability to volunteer for a task in agape and can edit/cancel their volunteering
 - Logged Out: users are asked if they wish to sign out of the site
-- Admin: can view the task that are volunteered and can also volunteer himself in one of the available tasks
+- Admin: can view the tasks that are volunteered and can also volunteer himself in one of the available tasks, Also, admin can search volunteerings and confirm them.
 
 # Agile Development
 
@@ -81,48 +81,46 @@ The user stories are as follows:
 
 ### Create staff users
 
-- As an admin, I can use the Django admin panel to create new staff users so that they can create new swims
+- As an admin, I can use the Django admin panel to create new tasks,search volunteerings, view volunteerings and confirm them.
     - AC1 - Admin can access the Django admin panel
-    - AC2 - Admin can create staff users in the Django admin panel
-    - AC 3 - New staff users can create, read, edit and delete swims
+    - AC2 - Admin can create tasks.
+    - AC3 - Admin can search volunteerings, view volunteerings and confirm them.
 
-Tasks 
-- Create staff users
-- Ensure new staff members can create, read, edit and delete swims
+Assignment
+- Create a specific volunteer home page for admin, so he can search and view all the volunteerings
+- create a volunteer detail page , where the admin can confirm the volunteerings or delete them.
 
-## Epic - Staff
 
-### Create Swim Posts (Full CRUD)
+## Epic - User
 
-- As a site staff member, I can make new swim posts so that my users can see upcoming swims
-    - AC1 - Create new swims by filling out the 'Add Swim' form
-    - AC2 - Read the new swim that has been created on the homepage
-    - AC 3 - Update/ edit the swim that I have created
-    - AC 4 - Delete the swim I have created
+### Volunteer for tasks
+
+- As a user, I should be able to volunteer for tasks by volunteering to the tasks, view my volunteerings, edit and delete them.
+    - AC1 - Volunteer to the tasks 
+    - AC2 - View their volunteering , 
+    - AC 3 - Edit/cancel their volunteering
 
 Tasks
--  Create 'Add Swim' form on user interface for staff members only to be able to add swims
-- Create view so that the added swims will be added to the homepage
-- Create authenticated users for that specific swim so that only that staff member can edit the swims they have added
-- Create a delete warning message so that staff can confirm they want to delete the swim
+-   Create a volunteer form where users, including admin can volunteer for tasks, by choosing the date, task and can write a message and also request a co-volunteer in the form.
+-  Create a volunteer detail page, where the user can view his volunteering and can also see if it is confirmed.also, scan edit/ cancel his volunteering.
 
 ## Epic - Site Access
 
 ### Log-in and log-out
 
-- As a site user, I can log in with my created username and password to access the site and see my previous actions
+- As a user, I can log in with my created username and password to access the site and see my previous actions
     - AC1 - Site user can log in with their created username and password after they have registered to the site
-    - AC2 - Site users can see the swims they have registered from a previous login
+    - AC2 - Site users can see the volunteerings they have registered from a previous login
     - AC 3 - Site user can log out when they have finished their session and confirm they want to log out
 
-Tasks
-- Link accounts/login template so that users can sign into the site
-- Link accounts/logout template so that users can sign out of the site
-- Ensure data is saved from previous login so that users can see their previous swim actions
+Assignments
+- Link accounts/login template so that users can sign into the site.
+- Link accounts/logout template so that users can sign out of the site.
+- Ensure data is saved from previous login so that users can see their volunteerings.
 
 ### Register an account
 
-- As a site user I can register an account so that I can return to see the swims I have booked to join
+- As a user I can register an account so that I can return to see the volunteerings I have volunteered through the volunteer form.
     - AC1 - User can register account and see site functionality
 
 Tasks
@@ -132,50 +130,49 @@ Tasks
 
 ## Epic - User Functions
 
-### View wild swim list
+### View Task List
 
-- As a site user I can view the wild swims around Scotland so that I can decided if I wish to register and sign up to a swim
-    - AC1 - When the site loads, the list of swims is visible to the user both logged and not logged in.
-    - AC2 - User can view swim detail without logged in
-    - AC 3 - User can join the swim once logged in
+- As a user I can view the tasks and decide to volunteer if I wish to register and sign up to a volunteering
+    - AC1 - When the site loads,the list of tasks to volunteer should be displayed
+    - AC2 - User can view tasks without logged in
+    - AC3 - User can view and can volunteer once logged in
 
-Tasks
+Assignments
 - Create a swim model to pull data from added swims and view to show the swims on the homepage
 - Create user authentication so that only logged-in users can join swims
 
-### Join a swim
+### Volunteer for a Task
 
-- As a logged-in site user, I can click to join a swim so I can make sure there is a place for me on that time and date
-    - AC1 - The site can be logged into and the join swim button is not visible to users who are not logged in or registered
-    - AC2 - The join swim button then moves that swim card to the Upcoming Swims page where users can revisit their upcoming swims
-    - AC 3 - Users can cancel their swim reservation
+- As a logged-in user, I can click on the task card , which leads me to the volunteer form so I can make sure to choose the task that i choose to volunteer, date and also, request a co-volunteer.
+    - AC1 - The volunteer form is displayed for logged in user to volunteer for tasks.
+    - AC2 - The volunteer detail card is displayed for the logged in user in the volunteer homepage. on clicking that, he can either edit or cancel his volunteering.
 
-Tasks
-- Ensure the 'Join Swim' button is not visible to unauthorised users
-- Create model and view for moving joined swim into upcoming swim page
-- Create cancel button which removes the swim from the upcoming swim page
+Assignments
+- Ensure the volunteer form is not visible to unauthorised users
+- Create model caleed volunteering.
+- Create a view in relation to the volunteering model, to view, create , edit, delete, and  confirm to delete the volunteerings.
 
-## Future Stories
+### Profile
 
-Future user stories were also created for the following:
+- As a logged-in user, I can update my account informations
+    - AC1 - A dedicated profile page is assigned to update username and email
 
-- Commenting on swims
-- Adding reviews to site
-- Editing account details
+Assignments
+- Create a acount detail button in the account coloumn , white leads to account informations page , where the username and email can be updated.
 
 
 # User Experience
 
 ## Wireframes
 
-![HomePage](documentation/readme-images/wireframe.png "Lucid image")
-![SignIn ](documentation/readme-images/wireframe.png "Lucid image")
-![SignUp ](documentation/readme-images/wireframe.png "Lucid image")
-![VolunteerForm Page](documentation/readme-images/wireframe.png "Lucid image")
-![Volunteer Home ](documentation/readme-images/wireframe.png "Lucid image")
-![Volunteer Home Admin](documentation/readme-images/wireframe.png "Lucid image")
-![Volunteer Detail](documentation/readme-images/wireframe.png "Lucid image")
-![Profile](documentation/readme-images/wireframe.png "Lucid image")
+![HomePage](documentation/readme%20images/homepage.png "Lucid image")
+![SignIn ](documentation/readme%20images/sign%20in%20page.png "Lucid image")
+![SignUp ](documentation/readme%20images/signup%20page.png "Lucid image")
+![VolunteerForm Page](documentation/readme%20images/Volunteer%20form.png "Lucid image")
+![Volunteer Home ](documentation/readme%20images/Volunteer%20home.png "Lucid image")
+![Volunteer Home Admin](documentation/readme%20images/Volunteer%20home%20admin.png "Lucid image")
+![Volunteer Detail](documentation/readme%20images/Volunteer%20detail%20form.png "Lucid image")
+![Profile](documentation/readme%20images/Profile%20page.png "Lucid image")
 
 Site structure was created before the site was created to test layout idea.
 
@@ -185,7 +182,7 @@ The project uses ElephantSQL as PostgreSQL relational database for storing the d
 
 The data schema was created using [Lucid Chart](https://www.lucidchart.com "Lucid Chart") before the project was started to get the flow and function of the models. 
 
-![Data Schema Image](documentation/readme-images/new-data-schema.png " Data Schema Image ")
+![Data Schema Image](documentation/readme%20images/data%20schema.png " Data Schema Image ")
 
 ## Typography
 
@@ -202,19 +199,18 @@ I selected this font due to its tall stature and expansive proportions, which en
   - #491609
   - #000000
   
-![Color palette Image](documentation/readme-images/colour-palette.png "Color palette Image ")
+![Color palette Image](documentation/readme%20images/color-pallete.png "Color palette Image ")
 
 ### Logo
 
 The logo used in the head section is agape community's official logo. Permission was taken to use the logo
 
-![Logo Image](documentation/readme-images/ws-logo.png " Logo Image ")
+![Logo Image](documentation/readme%20images/agapesverige_logo_favicon.png " Logo Image ")
 
 ## Design Choices
 
 I aimed for the website's design to convey a sense of warmth and hospitality to visitors. My goal was to ensure that navigating the site would be effortless and intuitive, providing users with easy access to the information they seek. Rather than overwhelming visitors with excessive details about Agape, I focused on presenting essential information in a clear and concise manner. Through strategic decisions, I endeavored to introduce Agape in a manner that would resonate positively with users.  
 
-![Swim Card](documentation/readme-images/swimcard.png " Swim Card Image ")
 
 [Back to Top](#wild-swim-scotland)
 
@@ -226,7 +222,10 @@ I aimed for the website's design to convey a sense of warmth and hospitality to 
 
 ### The Landing page And General Site Content
 
-![Homepage](documentation/readme-images/homepage.png " Home page image ")
+![Homepage](documentation/readme%20images/Homepage%20Agape.png " Home page image ")
+![Homepage](documentation/readme%20images/HomePage%202%20Agape.png " Home page image ")
+![Homepage](documentation/readme%20images/HomePage%203%20Agape.png " Home page image ")
+
 
 The landing page of the site of a non logged in / non registered user introduces them to agape and motivates them to volunteer for the tasks for agape . 
 The page sections 
@@ -237,7 +236,7 @@ The landing page is responsive for different screen sizes and scales down for ea
 
 ### Login
 
-![login](documentation/readme-images/login.png " login image ")
+![login](documentation/readme%20images/SignIn%20Page%20agape.png " login image ")
 
 The login page welcomes the user back to the site and has 2 clear options, username and password.
 The design is friendly and approachable by using rounded corners on the input boxes.
@@ -246,18 +245,15 @@ The text at the bottom of the login section lets users know they must be logged 
 
 If the username and password are not correct this error will show.
 
-![username error](documentation/readme-images/username-error.png " username error image ")
 
 ### Register
 
-![register](documentation/readme-images/register-form.png " register form image ")
+![register](documentation/readme%20images/SignUp%20Agape.png " register form image ")
 
 The register page welcomes users to the site with a friendly greeting. It lets users know that in order to use the site functions they must register an account.
 
 It offers them space for a username, email(optional) password and then rechecks the password to ensure it matches and there were no errors.
 An example of some of the errors:
-
-![register form errors](documentation/readme-images/register-form-errors.png " register form errors image ")
 
 The text at the top lets users know who already have an account that they can sign in using the login page.
 
@@ -266,7 +262,7 @@ The text at the top lets users know who already have an account that they can si
 
 ### Volunteer form page
 
-![Volunteer form page](documentation/readme-images/join-swim-button.png "joined-swim-button image ")
+![Volunteer form page](documentation/readme%20images/Volunteer%20form%20Agape.png "joined-swim-button image ")
 
 The user will notice when the have logged in is that there is now more information regarding the volunteering oppurtunities and when agape happens. 
 The user can now choose the task he wants to volunteer, the date he wants to volunteer, write an additional message regarding the task he chooses to volunteer. 
@@ -277,14 +273,16 @@ additionally errors will be displayed, if the user chooses a task/date which is 
 ### Volunteer home page
 
 #### Logged in user
-![Volunteer home page](documentation/readme-images/join-swim-button.png "joined-swim-button image ")
+![Volunteer home page](documentation/readme%20images/Volunteer%20home%20agape.png "joined-swim-button image ")
 Now the user is taken to the page where he can view all the tasks that he has choosen to volunteer on the left and his account details on the right.
 when clicked on the card he is redirected to the volunteer-detail page, where he can edit or cancel his volunteering.*(more on volunteer-detail page is explained in the section below)*
 Furthermore, the user can update his account information by clicking on the account details button.
 Also, the user can choose to volunteer for more tasks by clicking the volunteer button below the account details button.
 
+If the user hasn't volunteered for any tasks, the volunteer home page will look like this ![Volunteer home page](documentation/readme%20images/No%20upcoming%20Volunteers.png "no upcoming volunteerings")
+
 #### Admin
-![Volunteer home page](documentation/readme-images/join-swim-button.png "joined-swim-button image ")
+![Volunteer home page](documentation/readme%20images/volunteer%20home%20admin%20agape.png "volunteer home page admin ")
 For an admin, the volunteer home page is similar as an normal user, but he is provided with an additional search form on the right coloumn, 
 where he can search for tasks the the user have choosen to volunteered by name or date or both. 
 On the left column, admin can view all the volunteerings by default and is changed according to the search filter options.
@@ -292,18 +290,18 @@ On the left column, admin can view all the volunteerings by default and is chang
 ### Volunteer-detail page
 
 #### Logged in user
-![joined swims](documentation/readme-images/joined-swim-page.png " joined-swim-page image ")
+![joined swims](documentation/readme%20images/Volunteer%20detail%20page%20agape.png " volunteer detail page ")
 
 when the user clickes on his volunteering card he is redirected to the volunteer detail page. 
 He is now displayed with the choosen volunteer card , which gives the information like the date of volunteering, task, requested volunteer(if requested), confirmed/not confirmed yet. and 3 additional buttons.
-When clicked on the Edit Volunteering button, the user is directed to the volunteer form page with the predefined user choices, where he can further make changes to his volunteering task.[no swims joined](documentation/readme-images/no-swims-yet.png " no-swims-joined image ")
+When clicked on the Edit Volunteering button, the user is directed to the volunteer form page with the predefined user choices, where he can further make changes to his volunteering task.
 when clicked on the cancel volunteering button, he is directed to the dete volunteering page, 
-where the user is asked again if he wants to delete his volunteering task![no swims joined](documentation/readme-images/no-swims-yet.png " no-swims-joined image ")
+where the user is asked again if he wants to delete his volunteering task![no swims joined](documentation/readme%20images/volunteer%20delete%20page%20agape.png " Delete Volunteering ")
 when clicked on back button, the user is taken back to the volunteer home page
 
 ### Logout
 
-![logout](documentation/readme-images/logout.png " logout image ")
+![logout](documentation/readme%20images/Signout%20agape.png " logout image ")
 
 The logout page checks if the user does wish to sign out of the site.
 
@@ -321,9 +319,7 @@ There are some future features that I would like to add to the project to improv
 # Technologies Used
 
 - [Lucidchart](https://www.lucidchart.com/ "link to Lucidchart homepage")
-Lucidchart was used to create the wireframe in the planning stages of the project
-- [drawSQL](https://drawsql.app/ "Drawsql homepage")
-Drawsql was used to create the data schema
+Lucidchart was used to create the website templates and dataschema
 - [HTML5](https://en.wikipedia.org/wiki/HTML5 "link to html5 wikipedia")
 Used to create structure and content for the site.
 - [CSS](https://www.w3.org/Style/CSS/Overview.en.html "link to w3")
@@ -335,7 +331,7 @@ The CSS framework used to add styles and structure to the site.
 - [Python](https://en.wikipedia.org/wiki/Python_(programming_language) "link to Python wikipedia")
 Used to provide functionality to the site.
 - [Cloudinary](https://cloudinary.com/ "link to cloudinary homepage")
-Used to host images for the swim cards
+Used to host the hero image
 - [ElephantSQL](https://www.elephantsql.com/ "link to elephantsql homepage")
 Used to host the database used for the site.
 - [Am I Responsive?](https://ui.dev/amiresponsive "Link to Am I responsive webpage")
