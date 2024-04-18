@@ -260,31 +260,60 @@ Examples of results are as follows:
 <details>
 <summary> Home </summary>
 
-![home lighthouse](documentation/testing-images/lighthouse-home.png " hoem lighthouse image")
+![home lighthouse](documentation/testmd%20images/homepage%20lighthouse.png " home lighthouse image")
 
 </details>
 
 <details>
-<summary> Upcoming Swims </summary>
+<summary> Volunteer_homepage </summary>
 
-![joined_swmis lighthouse](documentation/testing-images/lighthouse-joined-swim.png "joined swim lighthouse image")
+![Volunteer_homepage](documentation/testmd%20images/Volunteer%20home%20lighthouse.png "Volunteer_homepage lighthouse")
 
 
 </details>
 
 <details>
-<summary> Add Swim </summary>
+<summary> Volunteer_form</summary>
 
-![Add Swim lighthouse](documentation/testing-images/lighthouse-add-swim.png "add swim lighthouse image")
+![Volunteerform lighthouse](documentation/testmd%20images/volunteer%20form%20lighthouse.png "Volunteer_form lighthouse")
+
+</details>
+
+<details>
+<summary> Volunteer_detail page </summary>
+
+![Volunteer_detail page](documentation/testmd%20images/volunteer_detail%20lighthouse.png "Volunteer_detail page lighthouse")
+
+</details>
+
+<details>
+<summary> Profile </summary>
+
+![Profile lighthouse](documentation/testmd%20images/profile%20lighthouse.png "Profile lighthouse image")
 
 </details>
 
 <details>
 <summary> Logout </summary>
 
-![logout lighthouse](documentation/testing-images/lighthouse-logout.png "logout lighthouse image")
+![logout lighthouse](documentation/testmd%20images/logout%20lighthouse.png "logout lighthouse image")
 
 </details>
+
+<details>
+<summary> Login </summary>
+
+![login lighthouse](documentation/testmd%20images/login%20lighthouse.png "login lighthouse image")
+
+</details>
+
+<details>
+<summary> SignUp </summary>
+
+![SignUp lighthouse](documentation/testmd%20images/Register%20lighthouse.png "signup lighthouse image")
+
+</details>
+
 
 # Known Bugs
 
