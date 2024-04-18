@@ -36,9 +36,6 @@ ALLOWED_HOSTS = ["8000-jayadeepravuri-agape-7nrdjkhoge8.ws-eu110.gitpod.io",
                  '.herokuapp.com']
 
 
-
-
-
 # Application definition
 
 INSTALLED_APPS = [

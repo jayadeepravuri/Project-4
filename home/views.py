@@ -1,6 +1,6 @@
-
 from django.views.generic import TemplateView
 from connect.models import Task
+
 
 class HomeView(TemplateView):
     """
@@ -10,9 +10,9 @@ class HomeView(TemplateView):
         - template_name: home/index.html
     """
 
-    template_name = 'home/index.html'
+    template_name = "home/index.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['task'] = Task.objects.all()
+        context["task"] = Task.objects.all()
         return context

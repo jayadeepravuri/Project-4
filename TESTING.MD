@@ -37,38 +37,30 @@ All HTML code has been run through the [W3C HTML Validator](https://validator.w3
 <details>
 <summary> W3C HTML Errors Found and fixed</summary>
 
-joined_swims.html
+index.html
 
-![joined_swmis errors](documentation/testing-images/join-swim-errors.png "join swim error image")
+![index.html errors](documentation/testmd%20images/index.html%20error%20.png "index.html error image")
 
-add_swim.html
+profile.html
 
-![add_swim errors](documentation/testing-images/add-swim-errors.png "add swim error image")
-
-![add_swim errors2](documentation/testing-images/add-swim2-error.png "add swim 2nd error image")
-
-edit_swim.html
-
-![edit_swim errors](documentation/testing-images/edit-swim-errors.png "edit swim error image")
-
-signup.html
-
-![register errors](documentation/testing-images/register-errors.png "register swim error image")
+![profile.html errors](documentation/testmd%20images/profile%20error.png "profile.html error image")
 
 </details>
 
 After testing all errors were fixed and document checking complete was shown for all pages
 
-![document checking complete](documentation/testing-images/document-ok.png "")
+
 
 | **SOURCE CODE TEMPLATE** | **RUN THROUGH VALIDATOR** | **ANY ERRORS** | **ERRORS RESOLVED** |
 | -------- | ---------- | --------------- | -----------|
-| swim_posts.html | Yes | No | N/A |
-| joined_swims.html | Yes | Yes - detailed image above | Yes, retested and all passed |
-| edit_swims.html | Yes | Yes - detailed image above | No, moved to bug section |
-| delete_swims.html | Yes | No | N/A |
-| add_swim.html | Yes | Yes - detailed image above | No, moved to bug section |
-| signup.html | Yes | Yes - detailed image above | Yes, retested and all passed |
+| base.html | Yes | No | N/A |
+| index.html | Yes | Yes - detailed image above | Yes, retested and all passed |
+| volunteer_form.html | Yes | No | N/A |
+| volunteer_home.html | Yes | No | N/A |
+| volunteer_detail.html | Yes | No | N/A |
+| volunteer_confirm_delete.html | Yes | No | N/A |
+| profile.html | Yes | Yes - detailed image above  | yes |
+| signup.html | Yes | No| N/A |
 | login.html | Yes | No | N/A |
 | logout.html | Yes | No | N/A |
 
@@ -78,7 +70,7 @@ All custom CSS has been run through the [W3C CSS Validator](https://jigsaw.w3.or
 
 No errors were found when running CSS through w3c validator
 
-![css w3c](documentation/testing-images/css-errors.png "css validator image")
+![css w3c](documentation/testmd%20images/css%20no%20error.png "css validator image")
 
 ## JSHint Validation Results
 
@@ -86,20 +78,11 @@ No javascript was used for this project.
 
 ## CI Python Linter Validation Results
 
-All python code that was written for this project by Sarah Goodwin was developed following PEP8 guidelines and was run through the [CI Python Linter](https://pep8ci.herokuapp.com/ "ci python linter page")
+All python code that was written following PEP8 guidelines and was run through the [CI Python Linter](https://pep8ci.herokuapp.com/ "ci python linter page")
 
-| **Python file** | **RUN THROUGH VALIDATOR** | **ANY ERRORS** | **ERRORS RESOLVED** |
-| -------- | ---------- | --------------- | -----------|
-| views.py | Yes | Some trailing white spaces | All clear, re-run and no error found |
-| urls.py | Yes | All clear, no errors found | N/A |
-| modles.py | Yes | 1 trailing white space | All clear, re-run and no error found |
-| forms.py | Yes | Line too long (89 > 79 characters) | Added   # noqa and all clear |
-| admin.py | Yes | All clear, no errors found | N/A |
-| settings.py | Yes | 1 trailing white space | All clear, re-run and no error found |
+Every python file in the connect app, home app and agape project were tested against PEP8 guidelines and no errors were found. 
 
-Final testing showed:
-
-![CI Python Linter](documentation/testing-images/linter-no-errors.png "python linter image")
+E501 rule in the strings of all the python files were neglected
 
 # Manual Testing
 
@@ -107,9 +90,9 @@ Final testing showed:
 
 | **TEST** | **ACTION** | **EXPECTATION** | **RESULT** | **FIX** |
 | -------- | ---------- | --------------- | -----------| ------- |
-| Swim Cards | Opened site url | Swim cards are visible | Worked as expected | N/A |
+| Render Homepage with images | Opened site url | Renders Homepage | Worked as expected | N/A |
 | Nav Links | Opened site url | Only register and login nav links are visible | Worked as expected | N/A |
-| Join Swim Buttons | Opened site url | Cannot see Join Swim Buttons | Worked as expected | N/A |
+
 
 ## Register Page
 
@@ -120,7 +103,7 @@ Final testing showed:
 | Username | Typed in admin as username | Warning will show | Warning showed 'A user with that username already exists.' | Worked as expected |
 | Password 1 | Typed in password same as username | Warning will show | Warning showed 'The password is too similar to the username.' | Worked as expected |
 | Password 2 | Typed in password different to password1 | Warning will show | Warning showed 'You must type the same password each time.' | Worked as expected |
-| Register Button | Click Register | Button takes user to logged in dashboard on homepage | Worked as expected | N/A |
+| Sign Up Button | Click Sign Up | Button takes user to logged in user to volunteer home | Worked as expected | N/A |
 | Login Button | Clicked on login link | Get taken to login page | Worked as expected | N/A |
 
 ## Login Page
@@ -129,25 +112,92 @@ Final testing showed:
 | -------- | ---------- | --------------- | -----------| ------- |
 | Username | Typed in random username | Warning will show | Warned showed 'The username and/or password you specified are not correct.' | Worked as expected |
 | Password | Typed in incorrect password | Warning will show | Warned showed 'The username and/or password you specified are not correct.' | Worked as expected |
-| Sign In | Typed in correct username and password, pressed sign up | Button takes user to logged in dashboard on homepage | Worked as expected | N/A |
+| Sign In | Typed in correct username and password, pressed sign up | Button takes user to logged in user to volunteer home | Worked as expected | N/A |
 | Sign Up | Clicked on Sign Up link | Get taken to register page | Worked as expected | N/A |
 
 ## Homepage as Logged in user
 
 | **TEST** | **ACTION** | **EXPECTATION** | **RESULT** | **FIX** |
 | -------- | ---------- | --------------- | -----------| ------- |
-| Join Swim Button | Clicked Join Swim | Swim added to upcoming swims page | Worked as expected | N/A |
-| Your Upcoming Swims | Left page and re-clicked on upcoming swims | Previous swims that had been added still there | Worked as expected | N/A |
-| Logout | Logout button replaced login button | No login button | Worked as expected | N/A |
-| Register | Register button no longer available | No register button | Worked as expected | N/A |
+| Nav links | Log in and go to homepage | Nav bar is updated with Volunteer,My account and Logout navlinks | Worked as expected | N/A |
+| Volunteer button | Click on Volunteer button on connect section | Directs to Volunteer home page | Worked as expected | N/A |
+| Volunteer_form Page | Click on Volunteer button on Navbar | Directs to Volunteer home page | Worked as expected | N/A |
 
-## Upcoming Swims
+## Volunteer_form Page (logged in user and admin)
 
 | **TEST** | **ACTION** | **EXPECTATION** | **RESULT** | **FIX** |
 | -------- | ---------- | --------------- | -----------| ------- |
-| No Swims Joined | Click on upcoming swims without joining a swim | Message 'No swims joined yet' will show | Worked as expected | N/A |
-| Joined Swim | Click on join swim button | Swim will be put onto upcoming swim page and redirected | New message showed saying 'Thank you for joining us, we can't wait to see you there!' | Worked as expected |
-| Remove Swim | Click remove swim button | Swim will disappear | Swim removed and stayed on upcoming swim page | Worked as expected |
+| Render Volunteer_form Page | Click on Volunteer button on Navbar | Directs to Volunteer form page | Worked as expected | N/A |
+| Form validation | Enter invalid date | shows error message | Worked as expected | N/A |
+| Form validation | choose unavailable volunteering opportunity | shows error message | Worked as expected | N/A |
+| Volunteer button | Click volunteer button | should take you to volunteer home and show sucess message | Worked as expected |
+
+## Volunteer_Home Page (logged in user)
+
+| **TEST** | **ACTION** | **EXPECTATION** | **RESULT** | **FIX** |
+| -------- | ---------- | --------------- | -----------| ------- |
+| Render Volunteer_Home Page | Click on My Account button on Navbar | Directs to Volunteer home page | Worked as expected | N/A |
+| Show volunteering card | Volunteer through volunteer_form | Display Volunteering card with all details in main coloumn | Worked as expected | N/A |
+| volunteering card | Click on the Volunteering card | should take you to volunteering detail page | Worked as expected | N/A |
+| Show no upcoming tasks | Create no volunteering and open My account page | Display "No upcoming tasks with Volunteer button below it" | N/A |
+| Your Account coloumn | Open My account page | Display username and Email details of the user | Worked as expected | N/A |
+| Account details button | Click on Account details button | Take you to Account informations page | Worked as expected | N/A |
+| Volunteer button | Click volunteer button | should take you to volunteer form page  | Worked as expected | N/A |
+| Paginate | Create multiplte volunteerings | Should create a next and prev button in the bottom of the main column | Worked as expected | N/A |
+
+## Volunteer_Home Page (Admin)
+
+| **TEST** | **ACTION** | **EXPECTATION** | **RESULT** | **FIX** |
+| -------- | ---------- | --------------- | -----------| ------- |
+| Render Volunteer_Home Page | Click on My Account button on Navbar | Directs to Volunteer home page | Worked as expected | N/A |
+| Show All volunteering cards | Go to Volunteer_home page | Display All Volunteering cards that was created | Worked as expected | N/A |
+| volunteering card | Click on the Volunteering card | should take you to volunteering detail page | Worked as expected | N/A |
+| confirm volunteering | Click on the Volunteering card and display confirm button | should take you to volunteering detail page,and Display confirm button  | Worked as expected | N/A |
+| Show no upcoming tasks | Delete all the volunteerings | Display "No upcoming tasks with Volunteer button below it" | N/A |
+| Your Account coloumn | Open My account page | Display username and Email details of the user | Worked as expected | N/A |
+| Search volunteers form | Open volunteer_home page | Display search form on the left column | Worked as expected | N/A |
+| Search volunteers form validation | select invalid and/or unavailable dates and usernames/tasks and click search | Display error message | Worked as expected | N/A |
+| Search volunteers form validation | select valid and/or unavailable dates and usernames/tasks and click search | Display volunteering cards accordingly | Worked as expected | N/A |
+| Search volunteers form validation | select valid and/or unavailable dates and usernames/tasks click reset | Display all volunteering cards and clear search form | Worked as expected | N/A |
+| Account details button | Click on Account details button | Take you to Account informations page | Worked as expected | N/A |
+| Volunteer button | Click volunteer button | should take you to volunteer form page  | Worked as expected | N/A |
+| Paginate | Render volunter_homepage with multiple volunteerings | Should create a next and prev button in the bottom of the main column | Worked as expected | N/A |
+
+## Volunteer_Detail Page (logged in user)
+
+| **TEST** | **ACTION** | **EXPECTATION** | **RESULT** | **FIX** |
+| -------- | ---------- | --------------- | -----------| ------- |
+| Render Volunteer_detail page | Click on volunteering card | Directs to Volunteering detail page | Worked as expected | N/A |
+| Edit volunteering Button | Click on Edit volunteering button | Directs to Volunteering form page with predefined choices and redirect you to volunteer home with a success message if the form input is validated | Worked as expected | N/A |
+| Cancel volunteering Button | Click on Cancel volunteering button | Directs to confirmDeleteVolunteer page | Worked as expected | N/A |
+| Back Button | Click on Back  button | Directs to Volunteer_Home page | Worked as expected | N/A |
+
+## Volunteer_Detail Page (Admin)
+
+| **TEST** | **ACTION** | **EXPECTATION** | **RESULT** | **FIX** |
+| -------- | ---------- | --------------- | -----------| ------- |
+| Render Volunteer_detail page | Click on volunteering card | Directs to Volunteering detail page | Worked as expected | N/A |
+| Confirm  Button | Click on Confirm volunteering button | confirm button should be disappear and should say confirmed when clicked on it | Worked as expected | N/A |
+| Edit volunteering Button | Click on Edit volunteering button which is available only on admin's volunteerings | Directs to Volunteering form page and redirect you to volunteer home with a success message if the form input is validated | Worked as expected | N/A |
+| Edit volunteering Button | click on users volunteering |  Edit button should not be present  | Worked as expected | N/A |
+| Cancel volunteering Button | Click on Cancel volunteering button, which is available for all volunteerings | Directs to confirmDeleteVolunteer page | Worked as expected | N/A |
+| Back Button | Click on Back  button | Directs to Volunteer_Home page | Worked as expected | N/A |
+
+## Confirm_delete_volunteering (logged in user and admin)
+
+| **TEST** | **ACTION** | **EXPECTATION** | **RESULT** | **FIX** |
+| -------- | ---------- | --------------- | -----------| ------- |
+| Render Confirm delete volunteering Page | Click on Cancel volunteering in detail page | Directs to confirm delete volunteering page | Worked as expected | N/A |
+| Yes,Delete! button | Click on Yes,Delete! button | should take you to volunteer home and show sucess message, with the volunteering card disappered | Worked as expected | N/A |
+| Cancel Button | Click on cancel button | Redirects to Volunteer_detail page | Worked as expected | N/A |
+
+## Profile Page (logged in user and Admin)
+
+| **TEST** | **ACTION** | **EXPECTATION** | **RESULT** | **FIX** |
+| -------- | ---------- | --------------- | -----------| ------- |
+| Render profile page | Click on Account details button in volunteer_Homepage | Directs to Volunteering detail page | Worked as expected | N/A |
+| Form validation | Click on update button with invalid username and/or email | Show error message | Worked as expected | N/A |
+| Form validation | Click on update button with valid username and/or email | Directs to Volunteer_Homepage with success message and updated account information | Worked as expected | N/A |
 
 ## Logout
 
@@ -155,55 +205,6 @@ Final testing showed:
 | -------- | ---------- | --------------- | -----------| ------- |
 | Logout | Clicked logout from nav bar | Message asking 'Are you sure you want to sign out?' | Worked as expected | N/A |
 | Sign Out button | Clicked sign out | Redirected to homepage as non logged in user | Worked as expected | N/A |
-
-## Homepage as staff user
-
-| **TEST** | **ACTION** | **EXPECTATION** | **RESULT** | **FIX** |
-| -------- | ---------- | --------------- | -----------| ------- |
-| Can see edit and delete buttons | As staff user I can see the edit and delete buttons for only swims I created | Edit and delete buttons appear | Worked as expected | N/A |
-
-
-## Add Swim
-
-| **TEST** | **ACTION** | **EXPECTATION** | **RESULT** | **FIX** |
-| -------- | ---------- | --------------- | -----------| ------- |
-| Add Swim | Clicked Add Swim nav link | Add swim form showed | Worked as expected | N/A |
-| Title | Tried to type unending title  | Form stops user from typing further | Worked as expected | N/A |
-| Description | Tired to type more than 250 characters | Form stops typing further | Worked as expected | N/A |
-| Date | Tried to input wrong date format | Date Picker stops form with error message | Worked as expected | N/A |
-| Date | Tried to type 45 in day section | Date Picker automatically moves user forward | Worked as expected | N/A |
-| Time | Tried to input 19.20 as time | Error message show | Error message showed 'Enter a valid time.' | Worked as expected |
-| Swim Difficulty | Tried to put 10 as swim level | Error message to show | Error message showed 'Ensure this value is less than or equal to 5.' | Worked as expected |
-| Location | Tried to type unending location | Form stops user from typing further | Worked as expected | N/A |
-| With image | Submitted large image | Image to be resized to fit swim card | Worked as expected | N/A |
-| No image | Submitted no image | Image to be replaced with placeholder | Worked as expected | N/A |
-| Submit | Clicked submit button | Form to be submitted and new swim card created | Worked as expected | N/A |
-| New swim added to homepage | Can see swim on homepage | Showing edit and delete buttons for new swim | Worked as expected | N/A |
-
-## Edit Swim
-
-| **TEST** | **ACTION** | **EXPECTATION** | **RESULT** | **FIX** |
-| -------- | ---------- | --------------- | -----------| ------- |
-| Data prefilled | Clicked Edit Swim | Data from swim is prefilled | Worked as expected | N/A |
-| Title | Tried to type unending title  | Form stops user from typing further | Worked as expected | N/A |
-| Description | Tired to type more than 250 characters | Form stops typing further | Worked as expected | N/A |
-| Date | Tried to input wrong date format | Date Picker stops form with error message | Worked as expected | N/A |
-| Date | Tried to type 45 in day section | Date Picker automatically moves user forward | Worked as expected | N/A |
-| Time | Tried to input 19.20 as time | Error message show | Error message showed 'Enter a valid time.' | Worked as expected |
-| Swim Difficulty | Tried to put 10 as swim level | Error message to show | Error message showed 'Ensure this value is less than or equal to 5.' | Worked as expected |
-| Location | Tried to type unending location | Form stops user from typing further | Worked as expected | N/A |
-| With image | Submitted large image | Image to be resized to fit swim card | Worked as expected | N/A |
-| No image | Submitted no image | Image to be replaced with placeholder | Worked as expected | N/A |
-| Submit | Clicked submit | New edits show on homepage | Worked as expected | N/A |
-| New swim added to homepage | Clicked Home | New edits show on homepage | Worked as expected | N/A |
-
-## Delete Swim
-
-| **TEST** | **ACTION** | **EXPECTATION** | **RESULT** | **FIX** |
-| -------- | ---------- | --------------- | -----------| ------- |
-| Delete Swim | Clicked Delete Swim button on swim card | Message shows asking if swim should be deleted | Worked as expected | N/A |
-| Delete Swim on delete page | Clicked delete | Swim is removed from homepage and user redirected back home | Worked as expected | N/A |
-
 
 ## Other Testing
 
@@ -217,9 +218,9 @@ Final testing showed:
 
 | **DEVICE** | **ACTION** | **EXPECTATION** | **RESULT** | **FIX** |
 | -------- | ---------- | --------------- | -----------| ------- |
-| Samsung22 Ultra | Tested site on mobile | Site functions and is responsive | Worked as expected | N/A |
+| Samsung20 FE | Tested site on mobile | Site functions and is responsive | Worked as expected | N/A |
 | iPhone 15 | Tested site on mobile | Site functions and is responsive | Worked as expected | N/A |
-| Dev Tools for iPad | Tested site for iPad Pro via dev tools | Site functions and is responsive | Worked as expected | N/A |
+
 
 ## Browser Compatibility
 
@@ -227,30 +228,21 @@ The site was tested on the following browser types
 
 * Google Chrome
 * Microsoft Edge
-* Safari
 
 ## User Testing
 
 A user testing form was sent to friends and family to test the site on their devices and get real world feedback from people who had not been involved in the creation of the site.
 
-Here is the form that was sent.
-
-![user testing image](documentation/testing-images/user-testing-form-tempalate.png "user testing form screenshot")
-
 Feedback from the form
 
-* Better responsiveness for mobile - added media queries after this feedback
+* Made small corrections and changed some text and spelling mistakes in the homepage
 * User testing did not throw many errors as users followed instructions
-* Users found it easy to add, edit, and delete a swim
+* Users found it easy to view, create, edit and deleate the and delete the volunteering
 * Users found it easy to create an account and navigate the website 
 
 ### Things to implement from user testing
 
-* User reported that "I put in a non matching password and it didn't warn me" so password errors were added to form to ensure this cannot happen
-
-* User reported "Had a problem with the time field. Would be good to know the format it was looking for." so placeholder text was added
-
-* User reported "It would be good if errors popped up in a different colour. I entered something incorrectly when creating an account and it took me a second to notice because it was the same colour font" - this would be a good feature for future implementation 
+* Made small corrections and changed some text and spelling mistakes in the homepage
 
 # Accessibility Testing
 
