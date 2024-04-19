@@ -67,7 +67,7 @@ A Kaban board was used in GitHub to create the agile development process – see
 4 Epics were created broken down into user stories, the epics included:
 
 1. Admin
-2. Staff
+2. user
 3. Site Access
 4. User Functions
 
