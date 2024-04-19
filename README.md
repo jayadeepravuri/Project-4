@@ -7,7 +7,7 @@
 The platform was built utilizing Django, boasting comprehensive CRUD operations and an intuitive user interface to facilitate volunteering for agape-related tasks. Users receive alerts in the form of notification boxes for any updates to their accounts or bookings. Administrators enjoy additional privileges, such as the ability to search for volunteers and their selected tasks based on dates and usernames.
 
 
-[Live Site Here](https://wild-swim-scotland-47f727d45ac1.herokuapp.com/ "take you to the Wild Swim Deployed Page")
+[Live Site Here](https://agape-sweden-dc6b63ef3118.herokuapp.com/ "take you to the Agape Deployed Page")
 
 # Table of Contents
 
