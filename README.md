@@ -4,7 +4,7 @@
 
 # Introduction
 
-The platform was built utilizing Django, boasting comprehensive CRUD operations and an intuitive user interface to facilitate volunteering for agape-related tasks. Users receive alerts in the form of notification boxes for any updates to their accounts or bookings. Administrators enjoy additional privileges, such as the ability to search for volunteers and their selected tasks based on dates and usernames.
+The platform was built utilizing Django, boasting comprehensive CRUD operations and an intuitive user interface to facilitate volunteering for agape-related tasks. Users receive alerts in the form of notification boxes for any updates to their accounts or bookings. Administrators enjoy additional privileges, such as the ability to search for volunteers and their tasks based on dates and usernames.
 
 
 [Live Site Here](https://agape-sweden-dc6b63ef3118.herokuapp.com/ "take you to the Agape Deployed Page")
@@ -98,9 +98,9 @@ Assignment
     - AC2 - View their volunteering , 
     - AC 3 - Edit/cancel their volunteering
 
-Tasks
+Assignments
 -   Create a volunteer form where users, including admin can volunteer for tasks, by choosing the date, task and can write a message and also request a co-volunteer in the form.
--  Create a volunteer detail page, where the user can view his volunteering and can also see if it is confirmed.also, scan edit/ cancel his volunteering.
+-  Create a volunteer detail page, where the user can view his volunteering and can also see if it is confirmed. Also, scan edit/ cancel his volunteering.
 
 ## Epic - Site Access
 
@@ -109,7 +109,7 @@ Tasks
 - As a user, I can log in with my created username and password to access the site and see my previous actions
     - AC1 - Site user can log in with their created username and password after they have registered to the site
     - AC2 - Site users can see the volunteerings they have registered from a previous login
-    - AC 3 - Site user can log out when they have finished their session and confirm they want to log out
+    - AC 3 - Site users can log out when they have finished their session and confirm they want to log out
 
 Assignments
 - Link accounts/login template so that users can sign into the site.
@@ -121,7 +121,7 @@ Assignments
 - As a user I can register an account so that I can return to see the volunteerings I have volunteered through the volunteer form.
     - AC1 - User can register account and see site functionality
 
-Tasks
+Assignments
 - Create a Register nav link button
 - Link 'accounts/sign_up.html' template so that new users can register to the site
 - Ensure registered users can see site functionality changed from being logged in vs logged out
@@ -172,7 +172,7 @@ Assignments
 ![Volunteer Detail](documentation/readme%20images/Volunteer%20detail%20form.png "Lucid image")
 ![Profile](documentation/readme%20images/Profile%20page.png "Lucid image")
 
-Site structure was created before the site was created to test layout idea.
+The above web templates was created before the site was created to test layout idea.
 
 ## Database Schema
 
@@ -214,11 +214,9 @@ I aimed for the website's design to convey a sense of warmth and hospitality to 
 
 # Features
 
-## Existing Features
-
 ## Non-Logged in User
 
-### The Landing page And General Site Content
+### The Landing page 
 
 ![Homepage](documentation/readme%20images/Homepage%20Agape.png " Home page image ")
 ![Homepage](documentation/readme%20images/HomePage%202%20Agape.png " Home page image ")
