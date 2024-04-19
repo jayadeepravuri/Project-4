@@ -8,7 +8,7 @@ from datetime import datetime, date
 
 class VolunteeringForm(forms.ModelForm):
     """
-    Form for creating and editing haircut bookings.
+    Form for creating and editing volunteerings.
 
     Fields:
         - date_of_volunteering: Date field for selecting the volunteering date.
@@ -61,7 +61,6 @@ class VolunteeringForm(forms.ModelForm):
         existing_volunteering = Volunteering.objects.filter(
             date_of_volunteering=date_of_volunteering,
             task=task,
-            request_covolunteer=request_covolunteer,
         ).exclude(id=self.instance.id)
 
         if existing_volunteering:
@@ -75,7 +74,7 @@ class VolunteeringForm(forms.ModelForm):
 
 class VolunteeringSearchForm(forms.Form):
     """
-    Form for searching volunteerings available in the admin panel.
+    Form for searching volunteerings available in the admin volunteer home.
     Can search for:
     - Username
     - Date of volunteering

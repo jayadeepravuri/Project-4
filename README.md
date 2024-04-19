@@ -58,9 +58,7 @@ The goals of the sites functionality are:
 
 # Agile Development
 
-A Kaban board was used in GitHub to create the agile development process – see the board [here]( https://github.com/users/sarahgoodwin93/projects/3 "Kaban board for Wild Swim Scotland Project")
-
-User stories were labelled using the MoSCoW method.
+A Kaban board was used in GitHub to create the agile development process – see the board [here]( https://github.com/users/jayadeepravuri/projects/2 "Kaban board for Agape project")
 
 [Back to Top](#agape)
 
