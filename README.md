@@ -1,4 +1,4 @@
-# [AGAPE](https://wild-swim-scotland-47f727d45ac1.herokuapp.com/ "take you to the Agape's Deployed Page")
+# [AGAPE](https://agape-sweden-dc6b63ef3118.herokuapp.com/ "take you to the Agape's Deployed Page")
 
 ![am-i-responsive-image](documentation/readme%20images/am%20i%20responsive.png)
 
@@ -28,12 +28,10 @@ The platform was built utilizing Django, boasting comprehensive CRUD operations 
             - [Login](#login)
             - [Register](#register)
         - [Logged in User](#logged-in-user)
+            - [volunteer form page](#volunteer-form-page)
+            - [volunteer home page](#volunteer-home-page)
+            - [volunteer detail page](#volunteer-detail-page)
             - [Logout](#logout)
-            - [Your Upcoming Swims](#your-upcoming-swims)
-        - [Staff User](#staff-user)
-            - [Add Swim](#add-swim)
-            - [Edit and Delete buttons](#edit-and-delete-buttons)
-            - [Delete Swims](#delete-swim)
     - [Future Features](#future-features)
 - [Technologies Used](#technologies-used)
 - [Testing](#testing)
@@ -79,7 +77,7 @@ The user stories are as follows:
 
 ## Epic - Admin
 
-### Create staff users
+### Create Tasks
 
 - As an admin, I can use the Django admin panel to create new tasks,search volunteerings, view volunteerings and confirm them.
     - AC1 - Admin can access the Django admin panel
@@ -262,7 +260,7 @@ The text at the top lets users know who already have an account that they can si
 
 ### Volunteer form page
 
-![Volunteer form page](documentation/readme%20images/Volunteer%20form%20Agape.png "joined-swim-button image ")
+![Volunteer form page](documentation/readme%20images/Volunteer%20form%20Agape.png "volunteer form page")
 
 The user will notice when the have logged in is that there is now more information regarding the volunteering oppurtunities and when agape happens. 
 The user can now choose the task he wants to volunteer, the date he wants to volunteer, write an additional message regarding the task he chooses to volunteer. 
@@ -344,15 +342,15 @@ Used to continue to create code and file structure for the respository.
 GitHub was used to store the code files, README files and asset files after pushing
 - [Heroku](https://id.heroku.com/login "Link to Heroku login")
 Heroku was used to deploy the project.
-- [Canva]("https://www.canva.com")
+- [Canva](https://www.canva.com/ "link to canva website")
 Canva was used to create volunteer card image in connect section
--[Pexels]("https://www.pexels.com/")
+- [Pexels](https://www.pexels.com/ " link to pexels website")
 Pexels was used to download free images for the home page of the website.
 
 
 # Testing
 
-Testing detail can be found [here](TESTING.md)
+Testing detail can be found [here](TESTING.MD)
 
 # Deployment
 
@@ -374,8 +372,8 @@ To clone the repository using GitHub the following steps were taken:
 
 To deploy this page to Heroku from its Codeanywhere repository, the following steps were taken:
 
-1. Get Python Essentials Template from Code Institute [P3 Template](https://github.com/Code-Institute-Org/p3-template "p3 template link")
-2. Create a new repository using the P3 template
+1. Get Python Essentials Template from Code Institute [Full Template](https://github.com/Code-Institute-Org/gitpod-full-template " template link")
+2. Create a new repository using the  template
 3. Copy the repo URL and copy it into Codeanywhere to create a new workspace
 4. Install Django - add to requirements file
 5. Create Procfile and add guricorn
