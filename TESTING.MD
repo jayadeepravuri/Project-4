@@ -1,4 +1,4 @@
-# Wild Swim Scotland Testing
+# AGAPE Testing
 
 Return to [README.md](README.md)
 
@@ -9,19 +9,21 @@ Return to [README.md](README.md)
     - [W3C CSS Validation Results](#w3c-css-validation-results)
     - [JSHint Validation Results](#jshint-validation-results)
     - [CI Python Linter Validation Results](#ci-python-linter-validation-results)
-- [Manual Testing](#manaul-testing)
+- [Manual Testing](#manual-testing)
     - [Home Page](#home-page)
     - [Register Page](#register-page)
     - [Login Page](#login-page)
-    - [Homepage as Logged in user](#homepage-as-logged-in-user)
-    - [Upcoming Swims](#upcoming-swims)
+    - [Homepage (Logged in user)](#homepage-logged-in-user)
+    - [Volunteer_form Page (logged in user and admin)](#volunteer_form-page-logged-in-user-and-admin)
+    - [Volunteer_Home Page (logged in user)](#volunteer_home-page-logged-in-user)
+    - [Volunteer_Home Page (Admin)](#volunteer_home-page-admin)
+    - [Volunteer_Detail Page (logged in user)](#volunteer_detail-page-logged-in-user)
+    - [Volunteer_Detail Page (Admin)](#volunteer_detail-page-admin)
+    - [Confirm_delete_volunteering (logged in user and admin)](#confirm_delete_volunteering-logged-in-user-and-admin)
+    - [Profile Page (logged in user and Admin)](#profile-page-logged-in-user-and-admin)
     - [Logout](#logout)
-    - [Homepage as staff user](#homepage-as-staff-user)
-    - [Add Swim](#add-swim)
-    - [Edit Swim](#edit-swim)
-    - [Delete Swim](#delete-swim)
     - [Other Testing](#other-testing)
-    - [Responsiveness testing](#responsivness-testing)
+    - [Responsiveness testing](#responsiveness-testing)
 - [Browser Compatibility](#browser-compatibility)
 - [User Testing](#user-testing)
 - [Accessibility Testing](#accessibility-testing)
@@ -115,7 +117,7 @@ E501 rule in the strings of all the python files were neglected
 | Sign In | Typed in correct username and password, pressed sign up | Button takes user to logged in user to volunteer home | Worked as expected | N/A |
 | Sign Up | Clicked on Sign Up link | Get taken to register page | Worked as expected | N/A |
 
-## Homepage as Logged in user
+## Homepage (logged in user)
 
 | **TEST** | **ACTION** | **EXPECTATION** | **RESULT** | **FIX** |
 | -------- | ---------- | --------------- | -----------| ------- |
@@ -231,7 +233,7 @@ The site was tested on the following browser types
 
 ## User Testing
 
-A user testing form was sent to friends and family to test the site on their devices and get real world feedback from people who had not been involved in the creation of the site.
+A user testing form was sent to friends to test the site on their devices and get real world feedback from people who had not been involved in the creation of the site.
 
 Feedback from the form
 
@@ -239,10 +241,12 @@ Feedback from the form
 * User testing did not throw many errors as users followed instructions
 * Users found it easy to view, create, edit and deleate the and delete the volunteering
 * Users found it easy to create an account and navigate the website 
+* User has mentioned that it would be nice if the navbar dropdown has automatically retrived back when clicked on a navbar link.
 
 ### Things to implement from user testing
 
 * Made small corrections and changed some text and spelling mistakes in the homepage
+
 
 # Accessibility Testing
 
@@ -317,19 +321,9 @@ Examples of results are as follows:
 
 # Known Bugs
 
-## Resolved
-
-Error in the console was showing a Mixed Content Error
-
-![mixed content error](documentation/testing-images/mixed-content-error.png "mixed content error image")
-
-This error was typed into Google and the [Stack Overflow](https://stackoverflow.com/questions/67765238/mixed-content-the-page-at-was-loaded-over-https-but-requested-an-insecure-resour "stack overflow mixed content error") question for the error gave the answer.
-
-The meta tag <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> was added to the base.html and the error was resolved.
-
 ## Unresolved 
 
-No known unresolved bugs
+E501 error was not resolved in the python validation because of string comments
 
 Return to [README.md](README.md)
 
