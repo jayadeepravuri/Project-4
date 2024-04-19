@@ -1,26 +1,60 @@
-@import url("https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" );
-@import url("https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 
-:root {
-    --clr-orange: #d64e21;
-    --clr-light: #f5f4f0;
-    --clr-dark: #212529;
-    
-}
-
-body{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: var(--clr-light);
+body {
+    font-family: 'Poppins', sans-serif;
 }
 
 h1, h2, h3, h4, h5 {
-    font-family: 'Sancreek', serif;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Primary Color */
+.primary-color {
+    color: #E59A59;
+}
+
+/* Secondary Color */
+.secondary-color {
+    color: #888870;
+}
+
+.Logo .text-color {
+    color: #f5f5dc;
+}
+
+/* Background Color */
+.bg-color {
+    background-color: #f9f8f1;
+}
+.bg-color-1 {
+    background-color: #f9f8f1; 
+}
+
+.bg-color-2 {
+    background-color: #f5f5dc; 
+}
+
+/* Text Color */
+.text-color {
+    color: #491609;
+}
+
+.text-muted {
+    color: #77777714;
 }
 
 
 /* Navigation */
 .fill-viewport-height {
-    min-height: 80vh;
+    min-height: 85vh;
+}
+
+#alert-container {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
 }
 
 
@@ -32,10 +66,93 @@ h1, h2, h3, h4, h5 {
     overflow: hidden;
     position: relative;
     top: 0;
+    
+}
+.masthead .text-color{
+    color:#FFFFFF;
+    text-shadow: 2px 2px 5px #141313;
 }
 
-.mast-image {
+.bg-image {
+    background: url('https://res.cloudinary.com/dxkkmbsmz/image/upload/v1713255562/pexels-elina-fairytale-4543646_v8ku6z.jpg') no-repeat center center / cover;
     height: 80vh;
-    width: 100%;
-    background: url(res.cloudinary.com/deahxwfve/image/upload/v1702027077/static/images/neills-barbershop-hero-lq2.6419b347ab4a.webp') no-repeat center center / cover;
+    background-position: center 20% ; 
+    width: 100%;}
+
+ /* about section*/
+ .section-title {
+    font-size: 2.5rem;
+    color: #141313;
+}
+
+/* Additional styling for image */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Custom CSS */
+#tasks .card {
+    border:#491609 ridge;
+
+}
+
+#tasks .card-body {
+    background-color: #f5f5dc; 
+}
+
+#tasks .card-title {
+    color: #141313;
+}
+
+#tasks .card-text {
+    color: #888870;
+}
+
+#tasks .btn-accent {
+    background-color: #c9c4ad; 
+    border-color: #DFAD49; 
+}
+
+#tasks .btn-accent:hover {
+    background-color: #b3ae98; 
+    border-color: #CAA642; 
+}
+
+#footer .text-color{
+    color:#f5f5dc
+
+}
+
+/* account form */
+.push-down {
+    position: relative;
+    top: 3rem;
+}
+
+#volunteerform .text-color {
+    color: #141313;
+}
+
+#signupform .btn-accent,
+#loginform .btn-accent,
+#volunteerform .btn-accent,
+#volunteerhome .btn-accent,
+#logoutpage .btn-accent,
+#volunteer-detail .btn-accent,
+#profile .btn-accent {
+    background-color: #c9c4ad; /* Accent Color */
+    border-color: #DFAD49; /* Accent Color */
+
+}
+
+#signupform .btn-accent:hover,
+#loginform .btn-accent:hover,
+#volunteerform .btn-accent:hover,
+#volunteerhome .btn-accent:hover,
+#logoutpage .btn-accent:hover,
+#volunteer-detail .btn-accent:hover,
+#profile .btn-accent:hover {
+    background-color: #b3ae98; /* Lighter shade of Accent Color on hover */
+    border-color: #CAA642; /* Lighter shade of Accent Color on hover */
 }
